@@ -37,13 +37,12 @@ export default function Example() {
   }
 
   return (
-    <div className="flex justify-center p-4 border rounded-lg">
+    <div className="flex justify-center">
       <ActionConfirmationDialog 
         title="Delete Account?"
         description="You cannot undo this operation."
         action={handleDelete}
         confirmText="Yes, delete it"
-        asChild
       >
         <Button variant="destructive">Remove Action</Button>
       </ActionConfirmationDialog>
