@@ -16,6 +16,14 @@ export const Route = createRootRoute({
       {
         title: 'TsxForge',
       },
+      {
+        name: 'description',
+        content: 'TsxForge is a UI package providing custom TailwindCSS and Shadcn UI components ready to use in your React applications.',
+      },
+      {
+        name: 'keywords',
+        content: 'react, tailwindcss, shadcn, ui components, tsxforge, frontend',
+      },
     ],
     links: [{ rel: 'stylesheet', href: appCss }],
   }),
