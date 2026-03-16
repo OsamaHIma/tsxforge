@@ -1,5 +1,4 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
-import Image from "./image";
 import { formatBytes, useFileUpload } from "@/hooks/use-file-upload";
 import { Button } from "@/components/ui/button";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -155,7 +154,7 @@ const ImageUpload = forwardRef<ImageUploadRef, ImageUploadProps>(
 
             {previewUrl ? (
               <div className="absolute inset-0 flex items-center justify-center p-4">
-                <Image
+                <img
                   src={previewUrl}
                   alt={file?.file?.name || initialImage || "Uploaded image"}
                   className="mx-auto max-h-46 rounded object-contain"
@@ -228,7 +227,7 @@ const ImageUpload = forwardRef<ImageUploadRef, ImageUploadProps>(
           <div className="grid xs:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
             {files.map((f) => (
               <div key={f.id} className="relative rounded-lg border p-2">
-                <Image
+                <img
                   src={f.preview || ""}
                   alt={f.file?.name || "Uploaded image"}
                   className="w-full h-24 rounded object-cover"
