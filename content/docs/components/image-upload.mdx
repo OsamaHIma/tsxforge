@@ -1,0 +1,70 @@
+---
+title: ImageUpload
+description: Advanced file uploader component with drag-and-drop mechanics.
+---
+
+import ImageUpload from "@/components/tsxforge/image-upload"
+
+# ImageUpload
+
+The `ImageUpload` component manages sophisticated image capturing routines involving Drag-and-Drop, single-or-multiple file validation checks, size constraints, and real-time previews utilizing the custom `Image` component.
+
+## Usage
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="p-4 border rounded-lg max-w-md">
+      <ImageUpload
+        multiple={false}
+        maxSize={5 * 1024 * 1024} // 5MB
+        onFileChange={(file) => console.log('Single File Selected:', file)}
+      />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import ImageUpload from "@/components/tsxforge/image-upload"
+
+export default function Example() {
+  // Can be a standard File or a preview resource
+  return (
+    <div className="p-4 border rounded-lg max-w-md">
+      <ImageUpload
+        multiple={false}
+        maxSize={5 * 1024 * 1024} // 5MB
+        onFileChange={(file) => console.log('Single File Selected:', file)}
+      />
+    </div>
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+### Multiple Upload
+
+```tsx
+<ImageUpload
+  multiple={true}
+  onFilesChange={(files) => console.log('Files Selected:', files)}
+/>
+```
+
+## Features
+
+- **Drag & Drop**: Automatically manages dropzone boundary styles during a dragging operation.
+- **Max File Size**: Enforce size boundaries natively checking MB bounds.
+- **Component File System Parsing**: Removes manual HTML `<input type="file" />` implementations.
+
+## Custom Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `onFileChange` | `(file: File \| null) => void` | `undefined` | Emits a single selected file (if `multiple=false`). |
+| `onFilesChange` | `(files: Array<File>) => void` | `undefined` | Emits an array of selected files. |
+| `maxSize` | `number` | `10485760` (10MB) | File size boundary constraint in bytes. |
+| `accept` | `string` | `'image/svg+xml,...'` | Accepted browser file MIME types string. |
+| `initialFile` | `File \| null` | `null` | A predefined `File` instance already selected. |
+| `initialImage` | `string` | `undefined` | A string representing an existing URL source string preview. |
+| `initialImages` | `string[]` | `[]` | Used alongside `multiple=true` to array previously provided URL strings. |
+| `multiple` | `boolean` | `false` | Accepts multiple files rendering a 3-column grid preview map. |

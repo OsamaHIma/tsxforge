@@ -1,0 +1,73 @@
+---
+title: Action Confirmation Dialog
+description: Declarative wrapper for confirm/cancel modal flows.
+---
+
+import ActionConfirmationDialog from "@/components/tsxforge/action-confirmation-dialog"
+import { Button } from "@/components/tsxforge/button"
+
+# Action Confirmation Dialog
+
+The `ActionConfirmationDialog` simplifies the implementation of critical actions where user certainty must be established via a popup overlay. Instead of manually coordinating `AlertDialog` triggers, contents, descriptions, cancels, and actions respectively, it wraps the syntax entirely taking in semantic `title`, `description`, and behavior strings.
+
+## Usage
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="flex justify-center p-4 border rounded-lg">
+      <ActionConfirmationDialog 
+        title="Delete Account?"
+        description="You cannot undo this operation."
+        action={() => console.log('Action Confirmed!')}
+        confirmText="Yes, delete it"
+        asChild
+      >
+        <Button variant="destructive">Remove Action</Button>
+      </ActionConfirmationDialog>
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import ActionConfirmationDialog from "@/components/tsxforge/action-confirmation-dialog"
+import { Button } from "@/components/tsxforge/button"
+
+export default function Example() {
+  const handleDelete = () => {
+    // Proceed with destructive behavior...
+  }
+
+  return (
+    <div className="flex justify-center p-4 border rounded-lg">
+      <ActionConfirmationDialog 
+        title="Delete Account?"
+        description="You cannot undo this operation."
+        action={handleDelete}
+        confirmText="Yes, delete it"
+        asChild
+      >
+        <Button variant="destructive">Remove Action</Button>
+      </ActionConfirmationDialog>
+    </div>
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Features
+
+- Employs ShadCN UI's `AlertDialog` primitives for full accessible standards including `focus-trapping` and correct `aria-describedby`/`aria-labelledby` semantics.
+- Visual icon placements inside the header geometry representing danger/confirmation schemas.
+- Wraps triggering children using standard `asChild` behaviors reducing extraneous DIV injections.
+
+## Custom Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `title` | `string` | `"Are You sure"` | Broad header title. |
+| `description` | `string` | `"This action can not be undone"` | Informational warning text. |
+| `action` | `() => void` | **Required** | Executable callback triggered sequentially following "Confirm" click. |
+| `confirmText` | `string` | `"Confirm"` | Verbiage for acceptance button label. |
+| `cancelText` | `string` | `"Cancel"` | Verbiage for returning cancel button label. |
+| `icon` | `IconSvgElement` | `Alert01Icon` | Header SVG descriptor. |
+| `asChild` | `boolean` | `false` | Whether to behave as a semantic Radix trigger pushing properties to the `children` boundary. |

@@ -1,0 +1,52 @@
+---
+title: Pagination
+description: Simplified logic-driven pagination component.
+---
+
+import Pagination from "@/components/tsxforge/pagination"
+
+# Pagination
+
+The `Pagination` component eliminates the boilerplate associated with manual pagination construction. Provide the current state, and the component calculates the correct ellipsis placements and renders the buttons.
+
+## Usage
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="flex flex-col items-center gap-6 p-4 border rounded-lg overflow-x-auto">
+      <Pagination currentPage={3} totalPages={10} />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import Pagination from "@/components/tsxforge/pagination"
+import { useState } from "react"
+
+export default function Example() {
+  const [page, setPage] = useState(1);
+  const totalPages = 10;
+
+  return (
+    <div className="flex flex-col items-center gap-6 p-4 border rounded-lg overflow-x-auto">
+      <Pagination 
+        currentPage={page} 
+        totalPages={totalPages} 
+        onChange={setPage} 
+      />
+    </div>
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Custom Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `currentPage` | `number` | **Required** | The currently selected page number (1-indexed). |
+| `totalPages` | `number` | **Required** | The maximum number of pages available. |
+| `paginationItemsToDisplay` | `number` | `5` | The maximum number of individual page buttons to display before inserting an ellipsis `...`. |
+| `onChange` | `(page: number) => void` | `undefined` | Callback invoked when a user clicks a page button or the next/prev arrows. |
+
+*Note: If `totalPages` is 1 or falsey, the component will return `null` and not render itself.*

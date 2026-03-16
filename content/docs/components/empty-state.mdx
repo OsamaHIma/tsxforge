@@ -1,0 +1,84 @@
+---
+title: EmptyState
+description: Configurable empty data boundaries and loading skeletons layouts.
+---
+
+import EmptyState from "@/components/tsxforge/empty-state"
+import { Button } from "@/components/tsxforge/button"
+
+# EmptyState
+
+The `EmptyState` component unifies application "fallbacks", serving distinct purposes based on data presence: representing absence of data, rendering HTTP 404 boundaries, handling errors organically, and managing loading states via sophisticated skeletons.
+
+## Usage
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="flex flex-col gap-8 p-4 border rounded-lg">
+      <div className="border border-dashed rounded-lg">
+        <EmptyState type="search" />
+      </div>
+      <div className="border border-dashed rounded-lg">
+        <EmptyState 
+          type="error"
+          title="Connection lost!" 
+          description="The application timed out connecting to the database."
+          action={<Button>Retry Connection</Button>}
+        />
+      </div>
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import EmptyState from "@/components/tsxforge/empty-state"
+import { Button } from "@/components/tsxforge/button"
+
+export default function Example() {
+  return (
+    <div className="flex flex-col gap-8 p-4 border rounded-lg">
+      <div className="border border-dashed rounded-lg">
+        <EmptyState type="search" />
+      </div>
+      <div className="border border-dashed rounded-lg">
+        <EmptyState 
+          type="error"
+          title="Connection lost!" 
+          description="The application timed out connecting to the database."
+          action={<Button>Retry Connection</Button>}
+        />
+      </div>
+    </div>
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Features
+
+The `type` prop triggers internal configurations swapping icons, default titles, and behaviors instantly:
+
+1. `search`: "No search results" alongside `Search01Icon`.
+2. `data`: "No data available" alongside `InboxIcon`.
+3. `error`: "An error occurred" structured with `Alert01Icon` in red tones.
+4. `loading`: Substantially transforms the component to render skeleton representations indicating fetching processes without requiring separate loader components.
+
+### Skeleton Loading Variants
+
+When `type="loading"`, you can enforce the `variant` to build the required skeleton topology matching what standard elements will eventually replace it.
+
+```tsx
+<EmptyState type="loading" variant="card" rows={3} />
+```
+
+## Custom Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `type` | `"search" \| "data" \| "error" \| "general" \| "loading"` | `"data"` | Baseline theme configuration indicating to default values. |
+| `title` | `string` | `undefined` | Optional title string that supersedes default types values. |
+| `description` | `string` | `undefined` | Optional description string that supersedes default types values. |
+| `action` | `React.ReactNode` | `undefined` | Arbitrary component node (commonly a `<Button>`). |
+| `icon` | `React.ReactNode` | `undefined` | Graphic SVG representation node. |
+| `variant` | `"page" \| "table" \| "card"` | `"page"` | Internal geometry layout when using `type="loading"`. |
+| `rows` | `number` | `6` | For the `table` and `card` variants, the quantitative number of instances to paint the skeleton frame. |

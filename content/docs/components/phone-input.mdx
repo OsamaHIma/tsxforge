@@ -1,0 +1,57 @@
+---
+title: Phone Input
+description: International telephone input component with country selection.
+---
+
+import { PhoneInput } from "@/components/tsxforge/phone-input"
+
+# Phone Input
+
+The `PhoneInput` component leverages `react-phone-number-input` to provide a seamless interface for capturing international phone numbers securely, along with a searchable dropdown list of countries.
+
+## Usage
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="flex flex-col gap-6 p-4 border rounded-lg max-w-sm">
+      <PhoneInput defaultCountry="US" />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import { PhoneInput } from "@/components/tsxforge/phone-input"
+import { useState } from "react"
+
+export default function Example() {
+  const [phone, setPhone] = useState<string>()
+  
+  return (
+    <div className="flex flex-col gap-6 p-4 border rounded-lg max-w-sm">
+      <PhoneInput
+        value={phone}
+        onChange={setPhone}
+        defaultCountry="US"
+      />
+    </div>
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Features
+
+- **Built-in Validation**: Utilizes `libphonenumber-js` under the hood.
+- **Searchable Country Code**: Rendered via a customized Popover to search through countries and their dial codes easily.
+- **Auto-Formatting**: Automatically formats the phone string as the user inputs based on the selected country format.
+
+## Custom Props
+
+This component passes through all the standard `react-phone-number-input` props, as well as native input attributes.
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `value` | `string` | `undefined` | The normalized E.164 string format. |
+| `onChange` | `(value: Value) => void` | `undefined` | A callback returning the parsed phone number string. |
+| `disabled` | `boolean` | `false` | Sets the entire field (both the text input and the country selector) to disabled. |
+| `className` | `string` | `undefined` | Class names passed to the outermost wrapper. |
