@@ -16,7 +16,7 @@ The `ImageUpload` component manages sophisticated image capturing routines invol
     <div className="p-4 border rounded-lg max-w-md">
       <ImageUpload
         multiple={false}
-        maxSize={5 * 1024 * 1024} // 5MB
+        maxSize={5 * 1024 * 1024}
         onFileChange={(file) => console.log('Single File Selected:', file)}
       />
     </div>
@@ -26,12 +26,11 @@ The `ImageUpload` component manages sophisticated image capturing routines invol
 import ImageUpload from "@/components/tsxforge/image-upload"
 
 export default function Example() {
-  // Can be a standard File or a preview resource
   return (
     <div className="p-4 border rounded-lg max-w-md">
       <ImageUpload
         multiple={false}
-        maxSize={5 * 1024 * 1024} // 5MB
+        maxSize={5 * 1024 * 1024}
         onFileChange={(file) => console.log('Single File Selected:', file)}
       />
     </div>
