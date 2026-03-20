@@ -1,67 +1,67 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { Slot } from 'radix-ui'
-import { cn } from '@/lib/utils'
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { Slot } from "radix-ui";
+import { cn } from "@/lib/utils";
 
 export interface ButtonProps
   extends
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
-  isLoading?: boolean
-  startContent?: React.ReactNode
-  endContent?: React.ReactNode
+  asChild?: boolean;
+  isLoading?: boolean;
+  startContent?: React.ReactNode;
+  endContent?: React.ReactNode;
   classNames?: {
-    startContent?: string
-    endContent?: string
-  }
-  to?: string
+    startContent?: string;
+    endContent?: string;
+  };
+  to?: string;
 }
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full text-sm font-medium transition-[color,box-shadow] duration-300 disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+ "group/button cursor-pointer inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-xs/relaxed font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-2 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
-        'outline-danger':
-          'bg-card border border-destructive-foreground shadow-none hover:bg-destructive/70',
-        'outline-primary':
-          'bg-transparent border border-primary text-primary shadow-none hover:bg-primary/20',
+        "outline-danger":
+          "bg-card border border-destructive-foreground shadow-none hover:bg-destructive/70",
+        "outline-primary":
+          "bg-transparent border border-primary text-primary shadow-none hover:bg-primary/20",
         default:
-          'bg-primary text-background shadow-none shadow-black/5 hover:bg-primary/90',
+          "bg-primary text-background shadow-none shadow-black/5 hover:bg-primary/90",
         destructive:
-          'bg-destructive text-white shadow-none hover:bg-destructive/70 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40',
+          "bg-destructive text-white shadow-none hover:bg-destructive/70 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         outline:
-          'border border-input bg-transparent shadow-none hover:bg-accent hover:text-accent-foreground',
-        flat: 'bg-muted shadow-none hover:text-primary',
-        secondary: 'bg-card text-primary shadow-none hover:bg-card/80',
+          "border border-input bg-transparent shadow-none hover:bg-accent hover:text-accent-foreground",
+        flat: "bg-muted shadow-none hover:text-primary",
+        secondary: "bg-card text-primary shadow-none hover:bg-card/80",
         ghost:
-          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
-        link: 'text-primary-foreground border-none p-0! rounded-sm underline border-primary-foreground underline-offset-4 hover:underline',
+          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+        link: "text-primary-foreground border-none p-0! rounded-sm underline border-primary-foreground underline-offset-4 hover:underline",
       },
       size: {
-        default: 'h-11 px-7 py-2',
-        sm: 'h-8 px-3 text-xs',
-        lg: 'h-12.5 px-10 text-lg',
-        xl: 'h-14 px-12 text-lg',
-        icon: 'size-9',
-        'icon-xs': "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
-        'icon-sm': 'size-8',
-        'icon-lg': 'size-11',
+        default: "h-11 px-7 py-2",
+        sm: "h-8 px-3 text-xs",
+        lg: "h-12.5 px-10 text-lg",
+        xl: "h-14 px-12 text-lg",
+        icon: "size-9",
+        "icon-xs": "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm": "size-8",
+        "icon-lg": "size-11",
       },
     },
     defaultVariants: {
-      variant: 'default',
-      size: 'default',
+      variant: "default",
+      size: "default",
     },
   },
-)
+);
 
 function Button({
   className,
   children,
-  variant = 'default',
-  size = 'default',
+  variant = "default",
+  size = "default",
   isLoading = false,
   startContent,
   endContent,
@@ -69,10 +69,10 @@ function Button({
   asChild,
   classNames,
   ...props
-}: React.ComponentProps<'button'> &
+}: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> &
   ButtonProps) {
-  const Comp = asChild ? Slot.Root : 'button'
+  const Comp = asChild ? Slot.Root : "button";
   return (
     <Comp
       data-slot="button"
@@ -106,7 +106,7 @@ function Button({
       )}
       {!isLoading && startContent && (
         <span
-          className={cn('size-5 flex items-center', classNames?.startContent)}
+          className={cn("size-5 flex items-center", classNames?.startContent)}
         >
           {startContent}
         </span>
@@ -114,15 +114,15 @@ function Button({
       {children}
       {!isLoading && endContent && (
         <span
-          className={cn('size-5 flex items-center', classNames?.endContent)}
+          className={cn("size-5 flex items-center", classNames?.endContent)}
         >
           {endContent}
         </span>
       )}
     </Comp>
-  )
+  );
 }
 
-Button.displayName = 'Button'
+Button.displayName = "Button";
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

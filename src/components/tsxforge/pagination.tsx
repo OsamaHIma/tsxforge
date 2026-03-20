@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   PaginationContent,
   PaginationEllipsis,
@@ -6,17 +6,17 @@ import {
   PaginationNext,
   PaginationPrevious,
   Pagination as ShadCnPagination,
-} from '@/components/ui/pagination'
-import { usePagination } from '@/hooks/use-pagination'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/tsxforge/button'
+} from "@/components/ui/pagination";
+import { usePagination } from "@/hooks/use-pagination";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/tsxforge/button";
 
 type PaginationProps = {
-  currentPage: number
-  totalPages: number
-  paginationItemsToDisplay?: number
-  onChange?: (page: number) => void
-}
+  currentPage: number;
+  totalPages: number;
+  paginationItemsToDisplay?: number;
+  onChange?: (page: number) => void;
+};
 
 export default function Pagination({
   currentPage,
@@ -28,29 +28,29 @@ export default function Pagination({
     currentPage,
     totalPages,
     paginationItemsToDisplay,
-  })
+  });
 
   const handlePageChange = (page: number) => {
     if (onChange && page !== currentPage) {
-      onChange(page)
+      onChange(page);
     }
-  }
+  };
 
-  if (Number(totalPages) === 1 || !totalPages) return null
+  if (Number(totalPages) === 1 || !totalPages) return null;
 
   return (
     <ShadCnPagination>
       <PaginationContent>
         {/* Previous page button */}
-        <PaginationItem>
+        <PaginationItem> 
           <Button
             onClick={() => handlePageChange(currentPage - 1)}
             size="icon-lg"
             className={cn(
-              'aria-disabled:pointer-events-none aria-disabled:opacity-50',
-              'hover:bg-accent hover:text-accent-foreground',
+              "aria-disabled:pointer-events-none aria-disabled:opacity-50",
+              "hover:bg-accent hover:text-accent-foreground",
             )}
-            variant={currentPage === 1 ? 'flat' : 'default'}
+            variant={currentPage === 1 ? "flat" : "default"}
             disabled={currentPage === 1}
             aria-disabled={currentPage === 1}
           >
@@ -67,19 +67,18 @@ export default function Pagination({
 
         {/* Page number buttons */}
         {pages.map((page) => (
-          <PaginationItem key={page}>
-            <button
-              onClick={() => handlePageChange(page)}
-              className={cn(
-                'rounded-full bg-muted text-accent-foreground size-11 transition-all duration-300',
-                'hover:bg-accent hover:text-accent-foreground',
-                page === currentPage &&
-                  'bg-primary border-0 hover:bg-primary text-foreground hover:text-foreground',
-              )}
-              aria-current={page === currentPage ? 'page' : undefined}
-            >
-              {page}
-            </button>
+          <PaginationItem
+            onClick={() => handlePageChange(page)}
+            key={page}
+            className={cn(
+              "rounded-full bg-muted text-accent-foreground flex items-center justify-center cursor-pointer size-11 transition-all duration-300",
+              "hover:bg-accent hover:text-accent-foreground",
+              page === currentPage &&
+                "bg-primary border-0 text-accent hover:bg-muted/70",
+            )}
+            aria-current={page === currentPage ? "page" : undefined}
+          >
+            {page}
           </PaginationItem>
         ))}
 
@@ -96,10 +95,10 @@ export default function Pagination({
             onClick={() => handlePageChange(currentPage + 1)}
             size="icon-lg"
             className={cn(
-              'aria-disabled:pointer-events-none aria-disabled:opacity-50',
-              'hover:bg-accent hover:text-accent-foreground',
+              "aria-disabled:pointer-events-none aria-disabled:opacity-50",
+              "hover:bg-accent hover:text-accent-foreground",
             )}
-            variant={currentPage === totalPages ? 'flat' : 'default'}
+            variant={currentPage === totalPages ? "flat" : "default"}
             disabled={currentPage === totalPages}
             aria-disabled={currentPage === totalPages}
           >
@@ -108,5 +107,5 @@ export default function Pagination({
         </PaginationItem>
       </PaginationContent>
     </ShadCnPagination>
-  )
+  );
 }

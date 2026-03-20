@@ -38,7 +38,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       description,
       required,
       animatedLabel = false,
-      showContentDivider = true,
+      showContentDivider = false,
       showPasswordToggle = true,
       classNames,
       ...props
@@ -68,7 +68,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         <div
           className={cn(
-            "flex items-center relative border-b border-border bg-background rounded-full px-2",
+            "flex items-center relative border border-border bg-background rounded-full px-2",
             classNames?.wrapper,
             label ? "mt-3" : "",
             props?.["aria-invalid"] && "border-destructive",

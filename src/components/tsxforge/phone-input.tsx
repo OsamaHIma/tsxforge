@@ -68,7 +68,7 @@ const InputComponent = React.forwardRef<
     {...props}
     animatedLabel={false}
     classNames={{
-      wrapper: 'rounded-e-lg rounded-s-none border-s-none',
+      wrapper: 'rounded-e-lg rounded-s-none border-s-0!',
     }}
     ref={ref}
   />
@@ -106,7 +106,7 @@ const CountrySelect = ({
         <Button
           type="button"
           variant="outline"
-          className="bg-background rounded-e-none rounded-bs-full border-0 border-b px-3 focus:z-10 h-[53px] text-muted-foreground"
+          className="bg-background rounded-e-none rounded-bs-full border-e-0! h-13.5 border-border px-3 focus:z-10 text-muted-foreground"
           disabled={disabled}
           endContent={
             <HugeiconsIcon

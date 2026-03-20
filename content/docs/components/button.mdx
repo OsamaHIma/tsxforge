@@ -5,6 +5,8 @@ description: Enhanced button components with loading states and routing integrat
 
 import { Button } from "@/components/tsxforge/button"
 import { ButtonLink } from "@/components/tsxforge/button-link"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { SearchIcon } from "@hugeicons/core-free-icons"
 
 # Button & ButtonLink
 
@@ -23,11 +25,15 @@ The `Button` component builds upon standard button styling with built-in loading
       <Button variant="outline">Outline Button</Button>
       <Button variant="destructive">Destructive Button</Button>
       <Button isLoading>Loading Button</Button>
+      <Button startContent={<HugeiconsIcon icon={SearchIcon} />}>Start content</Button>
+      <Button endContent={<HugeiconsIcon icon={SearchIcon} />}>End content</Button>
     </div>
   </Tab>
   <Tab value="Code">
 ```tsx
 import { Button } from "@/components/tsxforge/button"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { SearchIcon } from "@hugeicons/core-free-icons"
 
 export default function Example() {
   return (
@@ -36,6 +42,8 @@ export default function Example() {
       <Button variant="outline">Outline Button</Button>
       <Button variant="destructive">Destructive Button</Button>
       <Button isLoading>Loading Button</Button>
+      <Button startContent={<HugeiconsIcon icon={SearchIcon} />}>Start content</Button>
+      <Button endContent={<HugeiconsIcon icon={SearchIcon} />}>End content</Button>
     </div>
   )
 }
