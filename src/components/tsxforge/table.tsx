@@ -15,7 +15,7 @@ function Table({
   return (
     <ScrollArea
       className={cn(
-        'bg-card p-3 md:p-6 rounded-2xl border border-border overflow-hidden w-full whitespace-nowrap',
+        'bg-card p-3 md:p-6 rounded-2xl border border-border overflow-hidden w-full whitespace-nowrap grid',
         classNames?.wrapper,
       )}
     >
@@ -35,7 +35,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<'thead'>) {
   return (
     <thead
       data-slot="table-header"
-      className={cn('bg-muted', className)}
+      className={cn('[&_tr]:border-b-2 border-border/50 bg-muted', className)}
       {...props}
     />
   )
@@ -69,7 +69,7 @@ function TableRow({ className, ...props }: React.ComponentProps<'tr'>) {
     <tr
       data-slot="table-row"
       className={cn(
-        'hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors',
+        'hover:bg-muted/50 data-[state=selected]:bg-muted transition-colors',
         className,
       )}
       {...props}
@@ -82,7 +82,7 @@ function TableHead({ className, ...props }: React.ComponentProps<'th'>) {
     <th
       data-slot="table-head"
       className={cn(
-        'text-zinc-800 dark:text-zinc-200 h-12 px-3 text-start align-middle font-medium has-[role=checkbox]:w-px [&:has([role=checkbox])]:pe-0',
+        'text-muted-foreground text-lg h-12 px-3 text-start align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pe-0',
         className,
       )}
       {...props}
@@ -95,7 +95,7 @@ function TableCell({ className, ...props }: React.ComponentProps<'td'>) {
     <td
       data-slot="table-cell"
       className={cn(
-        'px-3 py-5 align-middle [&:has([role=checkbox])]:pe-0',
+        'px-3 py-5 align-middle whitespace-nowrap [&:has([role=checkbox])]:pe-0',
         className,
       )}
       {...props}
@@ -118,11 +118,11 @@ function TableCaption({
 
 export {
   Table,
+  TableHeader,
   TableBody,
-  TableCaption,
-  TableCell,
   TableFooter,
   TableHead,
-  TableHeader,
   TableRow,
+  TableCell,
+  TableCaption,
 }

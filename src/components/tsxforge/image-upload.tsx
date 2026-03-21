@@ -180,7 +180,7 @@ const ImageUpload = forwardRef<ImageUploadRef, ImageUploadProps>(
                     ? multiple
                       ? "Click to upload more"
                       : "Click to change"
-                    : `File format info: ${maxSizeMB}MB`}
+                    : `SVG, PNG, JPG or GIF (max. ${maxSizeMB}MB)`}
                 </p>
               </div>
             )}
