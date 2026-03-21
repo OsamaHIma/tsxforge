@@ -1,20 +1,20 @@
-import * as React from 'react'
-import ColorPickerPackage from 'react-color'
-const { ChromePicker } = ColorPickerPackage
+"use client";
+import ColorPickerPackage from "react-color";
+const { ChromePicker } = ColorPickerPackage;
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
-import { Button } from '@/components/tsxforge/button'
-import { Label } from '@/components/ui/label'
+} from "@/components/ui/popover";
+import { Button } from "@/components/tsxforge/button";
+import { Label } from "@/components/ui/label";
 
 interface ColorPickerProps {
-  color?: string
-  onChange: (color: string) => void
-  label?: string
-  id?: string
-  className?: string
+  color?: string;
+  onChange: (color: string) => void;
+  label?: string;
+  id?: string;
+  className?: string;
 }
 
 export function ColorPicker({
@@ -25,8 +25,8 @@ export function ColorPicker({
   className,
 }: ColorPickerProps) {
   const handleColorChange = (newColor: any) => {
-    onChange(newColor.hex)
-  }
+    onChange(newColor.hex);
+  };
 
   return (
     <div className={className}>
@@ -45,19 +45,19 @@ export function ColorPicker({
               />
             }
           >
-            {color || '#000000'}
+            {color || "#000000"}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <ChromePicker
-            color={color || '#000000'}
+            color={color || "#000000"}
             onChange={handleColorChange}
             disableAlpha
           />
         </PopoverContent>
       </Popover>
     </div>
-  )
+  );
 }
 
-export default ColorPicker
+export default ColorPicker;
