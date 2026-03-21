@@ -3,7 +3,7 @@ title: DocumentFileUpload
 description: Secure and versatile file uploader for documents and images.
 ---
 
-import DocumentFileUpload from "@/components/tsxforge/document-upload"
+import DocumentFileUpload from "@/components/tsxforge/document-upload";
 
 # DocumentFileUpload
 
@@ -11,23 +11,21 @@ The `DocumentFileUpload` component provides a robust interface for uploading doc
 
 ## Installation
 
-<Tabs items={['CLI', 'Manual']}>
+<Tabs items={["CLI", "Manual"]}>
   <Tab value="CLI">
-    ```bash
-    npx shadcn@latest add https://tsxforge.com/registry/document-upload.json
-    ```
+    ```bash npx shadcn@latest add
+    https://tsxforge.vercel.app/registry/document-upload.json ```
   </Tab>
   <Tab value="Manual">
     <div className="flex flex-col gap-2">
       <p>1. Install the following dependencies:</p>
-      ```bash
-      npm install lucide-react
-      ```
+      ```bash npm install lucide-react ```
       <p>2. Install the following Shadcn UI components:</p>
-      ```bash
-      npx shadcn@latest add button
-      ```
-      <p>3. Copy the component code to `src/components/tsxforge/document-upload.tsx`</p>
+      ```bash npx shadcn@latest add button ```
+      <p>
+        3. Copy the component code to
+        `src/components/tsxforge/document-upload.tsx`
+      </p>
     </div>
   </Tab>
 </Tabs>
@@ -70,14 +68,14 @@ export default function Example() {
 
 ## Custom Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `onFileChange` | `(file: File \| null) => void` | `undefined` | Callback triggered when a file is selected or removed. |
-| `maxSize` | `number` | `5242880` (5MB) | Maximum allowed file size in bytes. |
-| `accept` | `string` | `".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"` | Allowed file extensions or MIME types. |
-| `disabled` | `boolean` | `false` | Whether the uploader is interactive. |
-| `initialFile` | `File \| null` | `null` | Pre-populate the uploader with a `File` object. |
-| `initialUrl` | `string \| null` | `null` | Display an existing file via its URL. |
+| Prop           | Type                           | Default                                   | Description                                            |
+| -------------- | ------------------------------ | ----------------------------------------- | ------------------------------------------------------ |
+| `onFileChange` | `(file: File \| null) => void` | `undefined`                               | Callback triggered when a file is selected or removed. |
+| `maxSize`      | `number`                       | `5242880` (5MB)                           | Maximum allowed file size in bytes.                    |
+| `accept`       | `string`                       | `".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"` | Allowed file extensions or MIME types.                 |
+| `disabled`     | `boolean`                      | `false`                                   | Whether the uploader is interactive.                   |
+| `initialFile`  | `File \| null`                 | `null`                                    | Pre-populate the uploader with a `File` object.        |
+| `initialUrl`   | `string \| null`               | `null`                                    | Display an existing file via its URL.                  |
 
 ## Ref API
 

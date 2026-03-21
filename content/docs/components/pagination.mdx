@@ -3,7 +3,7 @@ title: Pagination
 description: Simplified logic-driven pagination component.
 ---
 
-import Pagination from "@/components/tsxforge/pagination"
+import Pagination from "@/components/tsxforge/pagination";
 
 # Pagination
 
@@ -11,23 +11,20 @@ The `Pagination` component eliminates the boilerplate associated with manual pag
 
 ## Installation
 
-<Tabs items={['CLI', 'Manual']}>
+<Tabs items={["CLI", "Manual"]}>
   <Tab value="CLI">
-    ```bash
-    npx shadcn@latest add https://tsxforge.com/registry/pagination.json
-    ```
+    ```bash npx shadcn@latest add
+    https://tsxforge.vercel.app/registry/pagination.json ```
   </Tab>
   <Tab value="Manual">
     <div className="flex flex-col gap-2">
       <p>1. Install the following dependencies:</p>
-      ```bash
-      npm install lucide-react
-      ```
+      ```bash npm install lucide-react ```
       <p>2. Install the following Shadcn UI components:</p>
-      ```bash
-      npx shadcn@latest add button
-      ```
-      <p>3. Copy the component code to `src/components/tsxforge/pagination.tsx`</p>
+      ```bash npx shadcn@latest add button ```
+      <p>
+        3. Copy the component code to `src/components/tsxforge/pagination.tsx`
+      </p>
     </div>
   </Tab>
 </Tabs>
@@ -49,16 +46,17 @@ export default function Example() {
   const [page, setPage] = useState(1);
   const totalPages = 10;
 
-  return (
-    <div className="flex flex-col items-center gap-6 p-4  overflow-x-auto">
-      <Pagination 
+return (
+<div className="flex flex-col items-center gap-6 p-4  overflow-x-auto">
+<Pagination 
         currentPage={page} 
         totalPages={totalPages} 
         onChange={setPage} 
       />
-    </div>
-  )
+</div>
+)
 }
+
 ```
   </Tab>
 </Tabs>
@@ -73,3 +71,4 @@ export default function Example() {
 | `onChange` | `(page: number) => void` | `undefined` | Callback invoked when a user clicks a page button or the next/prev arrows. |
 
 *Note: If `totalPages` is 1 or falsey, the component will return `null` and not render itself.*
+```

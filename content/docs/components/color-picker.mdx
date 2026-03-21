@@ -3,7 +3,7 @@ title: ColorPicker
 description: A Popover-based color selection component.
 ---
 
-import ColorPicker from "@/components/tsxforge/color-picker"
+import ColorPicker from "@/components/tsxforge/color-picker";
 
 # ColorPicker
 
@@ -11,23 +11,20 @@ The `ColorPicker` component allows users to select a color from a Chrome-style p
 
 ## Installation
 
-<Tabs items={['CLI', 'Manual']}>
+<Tabs items={["CLI", "Manual"]}>
   <Tab value="CLI">
-    ```bash
-    npx shadcn@latest add https://tsxforge.com/registry/color-picker.json
-    ```
+    ```bash npx shadcn@latest add
+    https://tsxforge.vercel.app/registry/color-picker.json ```
   </Tab>
   <Tab value="Manual">
     <div className="flex flex-col gap-2">
       <p>1. Install the following dependencies:</p>
-      ```bash
-      npm install react-color
-      ```
+      ```bash npm install react-color ```
       <p>2. Install the following Shadcn UI components:</p>
-      ```bash
-      npx shadcn@latest add popover button
-      ```
-      <p>3. Copy the component code to `src/components/tsxforge/color-picker.tsx`</p>
+      ```bash npx shadcn@latest add popover button ```
+      <p>
+        3. Copy the component code to `src/components/tsxforge/color-picker.tsx`
+      </p>
     </div>
   </Tab>
 </Tabs>
@@ -52,16 +49,17 @@ import { ColorPicker } from "@/components/tsxforge/color-picker"
 export default function Example() {
   const [color, setColor] = useState('#3b82f6')
 
-  return (
-    <div className="p-4 border rounded-lg max-w-sm">
-      <ColorPicker
+return (
+<div className="p-4 border rounded-lg max-w-sm">
+<ColorPicker
         label="Theme Color"
         defaultValue={color}
         onChange={setColor}
       />
-    </div>
-  )
+</div>
+)
 }
+
 ```
   </Tab>
 </Tabs>
@@ -81,3 +79,4 @@ export default function Example() {
 | `label` | `string` | `undefined` | Optional label text displayed above the picker button. |
 | `id` | `string` | `undefined` | Unique identifier for the component. |
 | `className` | `string` | `undefined` | Additional CSS classes for the container. |
+```

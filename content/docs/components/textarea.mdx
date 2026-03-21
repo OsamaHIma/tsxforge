@@ -3,7 +3,7 @@ title: Textarea
 description: Enhanced multiline text input component.
 ---
 
-import { Textarea } from "@/components/tsxforge/textarea"
+import { Textarea } from "@/components/tsxforge/textarea";
 
 # Textarea
 
@@ -11,19 +11,18 @@ The `Textarea` component resembles the `Input` component but is tailored for mul
 
 ## Installation
 
-<Tabs items={['CLI', 'Manual']}>
+<Tabs items={["CLI", "Manual"]}>
   <Tab value="CLI">
-    ```bash
-    npx shadcn@latest add https://tsxforge.com/registry/textarea.json
-    ```
+    ```bash npx shadcn@latest add
+    https://tsxforge.vercel.app/registry/textarea.json ```
   </Tab>
   <Tab value="Manual">
     <div className="flex flex-col gap-2">
       <p>1. Install the following Shadcn UI components:</p>
-      ```bash
-      npx shadcn@latest add textarea
-      ```
-      <p>2. Copy the component code to `src/components/tsxforge/textarea.tsx`</p>
+      ```bash npx shadcn@latest add textarea ```
+      <p>
+        2. Copy the component code to `src/components/tsxforge/textarea.tsx`
+      </p>
     </div>
   </Tab>
 </Tabs>
@@ -61,11 +60,11 @@ export default function Example() {
 
 ## Custom Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `label` | `string` | `undefined` | The label text. |
-| `animatedLabel` | `boolean` | `true` | Enables floating label animation inside the textarea wrapper. |
-| `startContent` | `React.ReactNode` | `undefined` | Icon or element displayed alongside the text field. |
-| `endContent` | `React.ReactNode` | `undefined` | Icon or element displayed at the end. |
-| `isLoading` | `boolean` | `false` | Displays a loading spinner inside the textarea wrapper. |
-| `classNames` | `object` | `{}` | Target specific sub-elements: `wrapper`, `main`, `startContent`, `endContent`, `description`, `label`. |
+| Prop            | Type              | Default     | Description                                                                                            |
+| --------------- | ----------------- | ----------- | ------------------------------------------------------------------------------------------------------ |
+| `label`         | `string`          | `undefined` | The label text.                                                                                        |
+| `animatedLabel` | `boolean`         | `true`      | Enables floating label animation inside the textarea wrapper.                                          |
+| `startContent`  | `React.ReactNode` | `undefined` | Icon or element displayed alongside the text field.                                                    |
+| `endContent`    | `React.ReactNode` | `undefined` | Icon or element displayed at the end.                                                                  |
+| `isLoading`     | `boolean`         | `false`     | Displays a loading spinner inside the textarea wrapper.                                                |
+| `classNames`    | `object`          | `{}`        | Target specific sub-elements: `wrapper`, `main`, `startContent`, `endContent`, `description`, `label`. |

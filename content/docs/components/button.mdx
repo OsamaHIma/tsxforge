@@ -3,10 +3,10 @@ title: Button & ButtonLink
 description: Enhanced button components with loading states and routing integration.
 ---
 
-import { Button } from "@/components/tsxforge/button"
-import { ButtonLink } from "@/components/tsxforge/button-link"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { SearchIcon } from "@hugeicons/core-free-icons"
+import { Button } from "@/components/tsxforge/button";
+import { ButtonLink } from "@/components/tsxforge/button-link";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { SearchIcon } from "@hugeicons/core-free-icons";
 
 # Button & ButtonLink
 
@@ -14,34 +14,32 @@ TsxForge provides an enhanced `<Button />` and `<ButtonLink />` that wrap the un
 
 ## Installation
 
-<Tabs items={['CLI', 'Manual']}>
+<Tabs items={["CLI", "Manual"]}>
   <Tab value="CLI">
     <div className="flex flex-col gap-4">
       <div>
         <p className="mb-2">Install **Button**:</p>
-        ```bash
-        npx shadcn@latest add https://tsxforge.com/registry/button.json
-        ```
+        ```bash npx shadcn@latest add
+        https://tsxforge.vercel.app/registry/button.json ```
       </div>
       <div>
         <p className="mb-2">Install **ButtonLink**:</p>
-        ```bash
-        npx shadcn@latest add https://tsxforge.com/registry/button-link.json
-        ```
+        ```bash npx shadcn@latest add
+        https://tsxforge.vercel.app/registry/button-link.json ```
       </div>
     </div>
   </Tab>
   <Tab value="Manual">
     <div className="flex flex-col gap-2">
       <p>1. Install the following dependencies:</p>
-      ```bash
-      npm install lucide-react @hugeicons/react @hugeicons/core-free-icons
-      ```
+      ```bash npm install lucide-react @hugeicons/react
+      @hugeicons/core-free-icons ```
       <p>2. Install the following Shadcn UI components:</p>
-      ```bash
-      npx shadcn@latest add button
-      ```
-      <p>3. Copy the component code to `src/components/tsxforge/button.tsx` or `button-link.tsx`</p>
+      ```bash npx shadcn@latest add button ```
+      <p>
+        3. Copy the component code to `src/components/tsxforge/button.tsx` or
+        `button-link.tsx`
+      </p>
     </div>
   </Tab>
 </Tabs>
@@ -81,13 +79,13 @@ export default function Example() {
 
 ### Custom Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `isLoading` | `boolean` | `false` | When true, renders a spinner in place of `startContent` and disables the button. |
-| `startContent` | `React.ReactNode` | `undefined` | Content to display before the children (typically an icon). |
-| `endContent` | `React.ReactNode` | `undefined` | Content to display after the children (typically an icon). |
-| `classNames` | `{ startContent?: string, endContent?: string }` | `undefined` | Custom classes for the specific content slots. |
-| `asChild` | `boolean` | `false` | Whether the button should render as its custom child component (using Radix `Slot`). |
+| Prop           | Type                                             | Default     | Description                                                                          |
+| -------------- | ------------------------------------------------ | ----------- | ------------------------------------------------------------------------------------ |
+| `isLoading`    | `boolean`                                        | `false`     | When true, renders a spinner in place of `startContent` and disables the button.     |
+| `startContent` | `React.ReactNode`                                | `undefined` | Content to display before the children (typically an icon).                          |
+| `endContent`   | `React.ReactNode`                                | `undefined` | Content to display after the children (typically an icon).                           |
+| `classNames`   | `{ startContent?: string, endContent?: string }` | `undefined` | Custom classes for the specific content slots.                                       |
+| `asChild`      | `boolean`                                        | `false`     | Whether the button should render as its custom child component (using Radix `Slot`). |
 
 ---
 
@@ -98,14 +96,14 @@ The `ButtonLink` component combines the `Button` styling options with TanStack R
 ### Usage
 
 ```tsx
-import { ButtonLink } from "@/components/tsxforge/button-link"
+import { ButtonLink } from "@/components/tsxforge/button-link";
 
 export default function Example() {
   return (
     <ButtonLink to="/profile" params={{ id: "123" }} variant="outline">
       Go to Profile
     </ButtonLink>
-  )
+  );
 }
 ```
 
@@ -113,9 +111,9 @@ export default function Example() {
 
 `ButtonLink` inherits all the routing capabilities from TanStack Router, plus the styling and capabilities of the `Button`.
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| Standard TanStack `Link` | - | - | e.g. `to`, `params`, `search`, etc. |
-| `isLoading` | `boolean` | `false` | Displays a loading spinner and prevents navigation clicks when true. |
-| `startContent` | `React.ReactNode` | `undefined` | Content to display before the label. |
-| `endContent` | `React.ReactNode` | `undefined` | Content to display after the label. |
+| Prop                     | Type              | Default     | Description                                                          |
+| ------------------------ | ----------------- | ----------- | -------------------------------------------------------------------- |
+| Standard TanStack `Link` | -                 | -           | e.g. `to`, `params`, `search`, etc.                                  |
+| `isLoading`              | `boolean`         | `false`     | Displays a loading spinner and prevents navigation clicks when true. |
+| `startContent`           | `React.ReactNode` | `undefined` | Content to display before the label.                                 |
+| `endContent`             | `React.ReactNode` | `undefined` | Content to display after the label.                                  |
