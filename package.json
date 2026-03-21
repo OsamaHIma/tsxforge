@@ -1,5 +1,9 @@
 {
   "name": "tsxforge",
+  "version": "1.0.0",
+  "description": "Powerful wrapper components extending generic UI primitives with declarative APIs and robust integrations.",
+  "author": "TsxForge",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "sideEffects": false,

@@ -45,7 +45,7 @@ function Home() {
         <div className="space-y-4 max-w-2xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-foreground dark:text-white">
             Build Modern UIs <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-600 to-neutral-900 dark:from-neutral-100 dark:to-neutral-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-neutral-600 to-neutral-900 dark:from-neutral-100 dark:to-neutral-500">
               Instantly
             </span>
           </h1>
