@@ -6,7 +6,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
-import { baseOptions } from "@/lib/layout.shared";
+import { baseOptions, gitConfig } from "@/lib/layout.shared";
 import { ButtonLink } from "@/components/tsxforge/button-link";
 
 export const Route = createFileRoute("/")({
@@ -47,23 +47,23 @@ function Home() {
                   "group rounded-full border border-black/5 bg-neutral-100 px-4 py-1 text-xs font-mono text-neutral-600 transition-all ease-in dark:border-white/5 dark:bg-neutral-900 dark:text-neutral-400",
                 )}
               >
-                <span className="opacity-50">ARCHITECT_CORE // </span>
-                <span className="font-bold">POLYGON_MESH_ID: 982-FF-02</span>
+                <span className="opacity-50">TSXFORGE_CORE // </span>
+                <span className="font-bold">STABLE_BETA: v1.0.42</span>
               </div>
             </div>
 
             {/* Main Title */}
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
               <h1 className="text-5xl sm:text-7xl lg:text-9xl font-bold tracking-tighter uppercase font-sans text-glow">
-                The Synthetic <br />
+                The Component <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-b from-foreground to-foreground/40">
-                  Architect
+                  Forge
                 </span>
               </h1>
               <p className="max-w-3xl mx-auto text-muted-foreground text-lg sm:text-xl md:text-2xl leading-relaxed font-sans bg-background/50 backdrop-blur-xs p-4 rounded-xl border border-border/20">
-                A precision-milled component library for the next generation of
-                digital archives. Built for high-frequency interfaces and
-                spatial clarity.
+                A powerful collection of accessible, high-performance React
+                primitives. Built on top of TailwindCSS, Framer Motion, and
+                declarative APIs for the modern web.
               </p>
             </div>
 
@@ -126,26 +126,45 @@ function Home() {
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Free forever. Built on GitHub by a global collective of
-                synthetic architects for the open-web initiative.
+                developers. Extensible, community-driven, and open for
+                innovation.
               </p>
             </div>
           </div>
 
           {/* Footer Branding */}
           <footer className="pt-24 pb-12 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-8 text-xs font-mono text-muted-foreground/60 tracking-widest uppercase">
-            <div>© 2024 TSXFORGE // SYNTHETIC ARCHITECT DIVISION</div>
+            <div>© 2024 TSXFORGE // OPEN SOURCE EDITION</div>
             <div className="flex gap-8">
-              <a href="#" className="hover:text-primary transition-colors">
+              <a
+                href={`https://github.com/${gitConfig.user}/${gitConfig.repo}`}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-primary transition-colors"
+              >
                 GitHub
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
-                Status
-              </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              <Link
+                to="/docs/$"
+                params={{ _splat: "" }}
+                className="hover:text-primary transition-colors"
+              >
+                Docs
+              </Link>
+              <Link
+                to="/docs/$"
+                params={{ _splat: "components/input" }}
+                className="hover:text-primary transition-colors"
+              >
+                Components
+              </Link>
+              <a
+                href={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/LICENSE`}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-primary transition-colors"
+              >
                 License
-              </a>
-              <a href="#" className="hover:text-primary transition-colors">
-                Changelog
               </a>
             </div>
           </footer>
