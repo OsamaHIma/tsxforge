@@ -9,14 +9,14 @@ The `Input` component creates a robust text field that handles its own label, st
 
 ## Usage
 
-import { MailIcon } from "lucide-react"
-import { Input } from "@/components/tsxforge/input"
+import { MailIcon } from "lucide-react";
+import { Input } from "@/components/tsxforge/input";
 
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
-    <div className="not-prose flex flex-col gap-6 p-4 border rounded-lg max-w-sm">
-      <Input label="Email Address" type="email" animatedLabel={true} startContent={<MailIcon size={16} />} required />
-      <Input label="Password" type="password" showPasswordToggle={true} animatedLabel={true} />
+    <div className="not-prose space-y-6 p-4 border rounded-lg max-w-md mx-auto">
+      <Input label="Email Address" type="email" startContent={<MailIcon size={16} className='size-5' />} required />
+      <Input label="Password" type="password" showPasswordToggle={true} />
     </div>
   </Tab>
   <Tab value="Code">
@@ -26,19 +26,19 @@ import { MailIcon } from "lucide-react"
 
 export default function Example() {
   return (
-    <div className="flex flex-col gap-6 p-4 border rounded-lg max-w-sm">
+    <div className="space-y-6 p-4 border rounded-lg max-w-md mx-auto">
       <Input 
         label="Email Address"
         type="email"
-        animatedLabel={true}
-        startContent={<MailIcon size={16} />}
+       
+        startContent={<MailIcon size={16} className='size-5' />}
         required
       />
       <Input 
         label="Password" 
         type="password" 
         showPasswordToggle={true} 
-        animatedLabel={true} 
+        
       />
     </div>
   )
@@ -52,22 +52,18 @@ export default function Example() {
 Setting the `type` to `"password"` automatically provides a toggle button to reveal or outline the text.
 
 ```tsx
-<Input 
-  label="Password" 
-  type="password" 
-  showPasswordToggle={true} 
-/>
+<Input label="Password" type="password" showPasswordToggle={true} />
 ```
 
 ## Custom Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `label` | `string` | `undefined` | The label text. |
-| `animatedLabel` | `boolean` | `false` | Enables floating label animation inside the input wrapper. |
-| `startContent` | `React.ReactNode` | `undefined` | Icon or element preceding the input value. |
-| `endContent` | `React.ReactNode` | `undefined` | Icon or element following the input value. |
-| `showContentDivider` | `boolean` | `true` | Show a vertical divider line after the `startContent`. |
-| `showPasswordToggle` | `boolean` | `true` | Show a built-in eye icon to toggle password visibility (only active if `type="password"`). |
-| `isLoading` | `boolean` | `false` | Displays a loading spinner at the end of the input field. |
-| `classNames` | `object` | `{}` | Target specific sub-elements: `wrapper`, `main`, `startContent`, `endContent`, `description`, `label`. |
+| Prop                 | Type              | Default     | Description                                                                                            |
+| -------------------- | ----------------- | ----------- | ------------------------------------------------------------------------------------------------------ |
+| `label`              | `string`          | `undefined` | The label text.                                                                                        |
+| `animatedLabel`      | `boolean`         | `false`     | Enables floating label animation inside the input wrapper.                                             |
+| `startContent`       | `React.ReactNode` | `undefined` | Icon or element preceding the input value.                                                             |
+| `endContent`         | `React.ReactNode` | `undefined` | Icon or element following the input value.                                                             |
+| `showContentDivider` | `boolean`         | `true`      | Show a vertical divider line after the `startContent`.                                                 |
+| `showPasswordToggle` | `boolean`         | `true`      | Show a built-in eye icon to toggle password visibility (only active if `type="password"`).             |
+| `isLoading`          | `boolean`         | `false`     | Displays a loading spinner at the end of the input field.                                              |
+| `classNames`         | `object`          | `{}`        | Target specific sub-elements: `wrapper`, `main`, `startContent`, `endContent`, `description`, `label`. |

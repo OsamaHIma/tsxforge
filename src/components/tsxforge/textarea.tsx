@@ -68,7 +68,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
               'border-input placeholder:text-muted-foreground/70 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex min-h-19.5 w-full rounded-xl bg-transparent px-3 py-2 text-sm transition-[color,box-shadow] outline-none disabled:cursor-not-allowed disabled:opacity-50',
               className,
               animatedLabel &&
-                'peer placeholder:text-transparent focus:placeholder:text-muted-foreground/70 !pt-5',
+                'peer placeholder:text-transparent focus:placeholder:text-muted-foreground/70 pt-5!',
             )}
             {...props}
           />
@@ -79,10 +79,10 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                 'text-xs absolute start-3 top-3 transition-all peer-placeholder-shown:top-[35%] peer-focus:top-[5%]',
                 classNames?.label,
                 (startContent || endContent) && 'start-15',
-                'peer-[&:not(:placeholder-shown)]:top-1 peer-[&:not(:placeholder-shown)]:text-sm',
+                'peer-not-placeholder-shown:top-1 peer-not-placeholder-shown:text-sm',
                 props?.['aria-invalid']
                   ? 'text-destructive animate-pulse'
-                  : 'text-[#A7A7A7] dark:text-[#666666]',
+                  : 'text-muted-foreground',
               )}
             >
               {label} {required && <span className="text-red-600">*</span>}

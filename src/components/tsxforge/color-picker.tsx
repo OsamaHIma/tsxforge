@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/tsxforge/button";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 
 interface ColorPickerProps {
   color?: string;
@@ -29,7 +30,7 @@ export function ColorPicker({
   };
 
   return (
-    <div className={className}>
+    <div className={cn("space-y-3", className)}>
       {label && <Label htmlFor={id}>{label}</Label>}
       <Popover>
         <PopoverTrigger asChild>

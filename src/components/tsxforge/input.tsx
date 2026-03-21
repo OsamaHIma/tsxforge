@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Label as ShadLabel } from "@/components/ui/label";
@@ -97,13 +98,28 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             )}
             {...props}
           />
-
+          {label && animatedLabel && (
+            <ShadLabel
+              htmlFor="animated"
+              className={cn(
+                props?.["aria-invalid"]
+                  ? "text-destructive animate-pulse"
+                  : "text-muted-foreground",
+                "text-xs absolute start-3 top-3 transition-all peer-placeholder-shown:top-[35%] peer-focus:top-[5%]",
+                classNames?.label,
+                (startContent || endContent) && "start-15",
+                "peer-not-placeholder-shown:top-0.5 peer-not-placeholder-shown:text-sm",
+              )}
+            >
+              {label} {required && <span className="text-red-600">*</span>}
+            </ShadLabel>
+          )}
           {/* PASSWORD TOGGLE */}
           {isPassword && showPasswordToggle && !isLoading && (
             <button
               type="button"
               onClick={togglePassword}
-              className="me-2 text-muted-foreground"
+              className="me-2 text-muted-foreground cursor-pointer"
               aria-label={showPassword ? "Hide password" : "Show password"}
             >
               <HugeiconsIcon icon={showPassword ? EyeOff : EyeIcon} />

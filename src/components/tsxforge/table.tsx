@@ -15,11 +15,11 @@ function Table({
   return (
     <ScrollArea
       className={cn(
-        'bg-card p-3 md:p-6 rounded-lg border border-border overflow-hidden w-full whitespace-nowrap grid',
+        'bg-card p-3 md:p-6 rounded-2xl border border-border overflow-hidden w-full whitespace-nowrap grid',
         classNames?.wrapper,
       )}
     >
-      <div className="relative overflow-auto rounded-t-2xl">
+      <div className="relative overflow-auto rounded-t-xl">
         <table
           data-slot="table"
           className={cn('w-full caption-bottom text-sm', className)}
