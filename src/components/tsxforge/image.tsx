@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import pkg from 'react-lazy-load-image-component'
+const { LazyLoadImage } = pkg
 import type { LazyLoadImageProps } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 import { forwardRef } from 'react'
