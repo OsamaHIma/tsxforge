@@ -21,9 +21,6 @@ The `Button` component builds upon standard button styling with built-in loading
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
     <div className="not-prose flex flex-wrap items-center gap-4 p-4 border rounded-lg">
-      <Button>Default Button</Button>
-      <Button variant="outline">Outline Button</Button>
-      <Button variant="destructive">Destructive Button</Button>
       <Button isLoading>Loading Button</Button>
       <Button startContent={<HugeiconsIcon icon={SearchIcon} />}>Start content</Button>
       <Button endContent={<HugeiconsIcon icon={SearchIcon} />}>End content</Button>
@@ -38,9 +35,6 @@ import { SearchIcon } from "@hugeicons/core-free-icons"
 export default function Example() {
   return (
     <div className="flex flex-wrap items-center gap-4 p-4 border rounded-lg">
-      <Button>Default Button</Button>
-      <Button variant="outline">Outline Button</Button>
-      <Button variant="destructive">Destructive Button</Button>
       <Button isLoading>Loading Button</Button>
       <Button startContent={<HugeiconsIcon icon={SearchIcon} />}>Start content</Button>
       <Button endContent={<HugeiconsIcon icon={SearchIcon} />}>End content</Button>
