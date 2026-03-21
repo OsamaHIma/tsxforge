@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
-import pkg from 'react-lazy-load-image-component'
-const { LazyLoadImage } = pkg
-import type { LazyLoadImageProps } from 'react-lazy-load-image-component'
+import * as LazyLoadImagePkg from 'react-lazy-load-image-component';
+const LazyLoadImage = (LazyLoadImagePkg as any).LazyLoadImage ?? (LazyLoadImagePkg as any).default?.LazyLoadImage ?? (LazyLoadImagePkg as any).default ?? LazyLoadImagePkg;
+import type { LazyLoadImageProps } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css'
 import { forwardRef } from 'react'
 
