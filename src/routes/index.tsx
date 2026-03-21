@@ -61,9 +61,7 @@ function Home() {
                 </span>
               </h1>
               <p className="max-w-3xl mx-auto text-muted-foreground text-lg sm:text-xl md:text-2xl leading-relaxed font-sans bg-background/50 backdrop-blur-xs p-4 rounded-xl border border-border/20">
-                A powerful collection of accessible, high-performance React
-                primitives. Built on top of TailwindCSS, Framer Motion, and
-                declarative APIs for the modern web.
+                A powerful collection of **functional, high-performance primitives**. Unlike standard UI libraries, we provide the **logic and state management** for complex components like pagination, file uploads, and date pickers out of the box.
               </p>
             </div>
 
@@ -96,11 +94,12 @@ function Home() {
                 01
               </div>
               <h3 className="text-xl font-bold uppercase tracking-tight">
-                Performance
+                Built-in Logic
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                60fps native performance with zero-runtime CSS overhead.
-                Precision-milled for speed and minimal bundle footprint.
+                Beyond just UI. We handle complex state management for
+                pagination, international phone inputs, and file processing
+                routines out of the box.
               </p>
             </div>
 

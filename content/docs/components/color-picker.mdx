@@ -3,11 +3,59 @@ title: ColorPicker
 description: A Popover-based color selection component.
 ---
 
-import ColorPicker from "@/components/tsxforge/color-picker"
+import ColorPicker from "@/components/tsxforge/color-picker";
 
 # ColorPicker
 
 The `ColorPicker` component allows users to select a color from a Chrome-style picker. It is built using a Popover and integrates seamlessly with the design system.
+
+## Installation
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/color-picker.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/color-picker.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/color-picker.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/color-picker.json
+        ```
+      </Tab>
+    </Tabs>
+  </Tab>
+  <Tab value="Manual">
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install react-color
+        ```
+      </Step>
+      <Step>
+        Install the following Shadcn UI components:
+        ```bash
+        npx shadcn@latest add popover button
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/color-picker.tsx`
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
 
 ## Usage
 
@@ -29,16 +77,17 @@ import { ColorPicker } from "@/components/tsxforge/color-picker"
 export default function Example() {
   const [color, setColor] = useState('#3b82f6')
 
-  return (
-    <div className="p-4 border rounded-lg max-w-sm">
-      <ColorPicker
+return (
+<div className="p-4 border rounded-lg max-w-sm">
+<ColorPicker
         label="Theme Color"
         defaultValue={color}
         onChange={setColor}
       />
-    </div>
-  )
+</div>
+)
 }
+
 ```
   </Tab>
 </Tabs>
@@ -58,3 +107,4 @@ export default function Example() {
 | `label` | `string` | `undefined` | Optional label text displayed above the picker button. |
 | `id` | `string` | `undefined` | Unique identifier for the component. |
 | `className` | `string` | `undefined` | Additional CSS classes for the container. |
+```

@@ -3,12 +3,60 @@ title: EmptyState
 description: Configurable empty data boundaries and loading skeletons layouts.
 ---
 
-import EmptyState from "@/components/tsxforge/empty-state"
-import { Button } from "@/components/tsxforge/button"
+import EmptyState from "@/components/tsxforge/empty-state";
+import { Button } from "@/components/tsxforge/button";
 
 # EmptyState
 
 The `EmptyState` component unifies application "fallbacks", serving distinct purposes based on data presence: representing absence of data, rendering HTTP 404 boundaries, handling errors organically, and managing loading states via sophisticated skeletons.
+
+## Installation
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/empty-state.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/empty-state.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/empty-state.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/empty-state.json
+        ```
+      </Tab>
+    </Tabs>
+  </Tab>
+  <Tab value="Manual">
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install lucide-react
+        ```
+      </Step>
+      <Step>
+        Install the following Shadcn UI components:
+        ```bash
+        npx shadcn@latest add button
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/empty-state.tsx`
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
 
 ## Usage
 
@@ -73,12 +121,12 @@ When `type="loading"`, you can enforce the `variant` to build the required skele
 
 ## Custom Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `type` | `"search" \| "data" \| "error" \| "general" \| "loading"` | `"data"` | Baseline theme configuration indicating to default values. |
-| `title` | `string` | `undefined` | Optional title string that supersedes default types values. |
-| `description` | `string` | `undefined` | Optional description string that supersedes default types values. |
-| `action` | `React.ReactNode` | `undefined` | Arbitrary component node (commonly a `<Button>`). |
-| `icon` | `React.ReactNode` | `undefined` | Graphic SVG representation node. |
-| `variant` | `"page" \| "table" \| "card"` | `"page"` | Internal geometry layout when using `type="loading"`. |
-| `rows` | `number` | `6` | For the `table` and `card` variants, the quantitative number of instances to paint the skeleton frame. |
+| Prop          | Type                                                      | Default     | Description                                                                                            |
+| ------------- | --------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------ |
+| `type`        | `"search" \| "data" \| "error" \| "general" \| "loading"` | `"data"`    | Baseline theme configuration indicating to default values.                                             |
+| `title`       | `string`                                                  | `undefined` | Optional title string that supersedes default types values.                                            |
+| `description` | `string`                                                  | `undefined` | Optional description string that supersedes default types values.                                      |
+| `action`      | `React.ReactNode`                                         | `undefined` | Arbitrary component node (commonly a `<Button>`).                                                      |
+| `icon`        | `React.ReactNode`                                         | `undefined` | Graphic SVG representation node.                                                                       |
+| `variant`     | `"page" \| "table" \| "card"`                             | `"page"`    | Internal geometry layout when using `type="loading"`.                                                  |
+| `rows`        | `number`                                                  | `6`         | For the `table` and `card` variants, the quantitative number of instances to paint the skeleton frame. |

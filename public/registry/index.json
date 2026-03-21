@@ -1,0 +1,143 @@
+[
+  {
+    "name": "action-confirmation-dialog",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [
+      "alert-dialog",
+      "button"
+    ]
+  },
+  {
+    "name": "button-link",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "button"
+    ]
+  },
+  {
+    "name": "button",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "button"
+    ]
+  },
+  {
+    "name": "color-picker",
+    "type": "registry:ui",
+    "dependencies": [
+      "react-color"
+    ],
+    "registryDependencies": [
+      "popover",
+      "button"
+    ]
+  },
+  {
+    "name": "datetime-picker",
+    "type": "registry:ui",
+    "dependencies": [
+      "date-fns",
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "popover",
+      "calendar",
+      "button",
+      "input"
+    ]
+  },
+  {
+    "name": "document-upload",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "button"
+    ]
+  },
+  {
+    "name": "empty-state",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "button"
+    ]
+  },
+  {
+    "name": "image-upload",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "button"
+    ]
+  },
+  {
+    "name": "image",
+    "type": "registry:ui",
+    "dependencies": [
+      "react-lazy-load-image-component"
+    ],
+    "registryDependencies": []
+  },
+  {
+    "name": "input",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "input"
+    ]
+  },
+  {
+    "name": "pagination",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "button"
+    ]
+  },
+  {
+    "name": "phone-input",
+    "type": "registry:ui",
+    "dependencies": [
+      "react-phone-number-input"
+    ],
+    "registryDependencies": [
+      "popover",
+      "command",
+      "button",
+      "input"
+    ]
+  },
+  {
+    "name": "table",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [
+      "scroll-area"
+    ]
+  },
+  {
+    "name": "textarea",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [
+      "textarea"
+    ]
+  }
+]

@@ -3,11 +3,59 @@ title: Phone Input
 description: International telephone input component with country selection.
 ---
 
-import { PhoneInput } from "@/components/tsxforge/phone-input"
+import { PhoneInput } from "@/components/tsxforge/phone-input";
 
 # Phone Input
 
 The `PhoneInput` component leverages `react-phone-number-input` to provide a seamless interface for capturing international phone numbers securely, along with a searchable dropdown list of countries.
+
+## Installation
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/phone-input.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/phone-input.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/phone-input.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/phone-input.json
+        ```
+      </Tab>
+    </Tabs>
+  </Tab>
+  <Tab value="Manual">
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install react-phone-number-input lucide-react
+        ```
+      </Step>
+      <Step>
+        Install the following Shadcn UI components:
+        ```bash
+        npx shadcn@latest add popover command button input
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/phone-input.tsx`
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
 
 ## Usage
 
@@ -49,9 +97,9 @@ export default function Example() {
 
 This component passes through all the standard `react-phone-number-input` props, as well as native input attributes.
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `value` | `string` | `undefined` | The normalized E.164 string format. |
-| `onChange` | `(value: Value) => void` | `undefined` | A callback returning the parsed phone number string. |
-| `disabled` | `boolean` | `false` | Sets the entire field (both the text input and the country selector) to disabled. |
-| `className` | `string` | `undefined` | Class names passed to the outermost wrapper. |
+| Prop        | Type                     | Default     | Description                                                                       |
+| ----------- | ------------------------ | ----------- | --------------------------------------------------------------------------------- |
+| `value`     | `string`                 | `undefined` | The normalized E.164 string format.                                               |
+| `onChange`  | `(value: Value) => void` | `undefined` | A callback returning the parsed phone number string.                              |
+| `disabled`  | `boolean`                | `false`     | Sets the entire field (both the text input and the country selector) to disabled. |
+| `className` | `string`                 | `undefined` | Class names passed to the outermost wrapper.                                      |

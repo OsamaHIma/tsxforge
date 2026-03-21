@@ -228,7 +228,7 @@
   }
 
   .text-glow {
-    text-shadow: 0 0 20px var(--primary / 0.3);
+    text-shadow: 0 0 20px oklch(0.5393 0.2713 286.7462 / 0.3);
   }
 }
 

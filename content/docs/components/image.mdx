@@ -3,11 +3,53 @@ title: Image
 description: Enhanced Image component with lazy loading, error handling, and accessibility features.
 ---
 
-import Image from "@/components/tsxforge/image"
+import Image from "@/components/tsxforge/image";
 
 # Image
 
 The `Image` component is built on top of `react-lazy-load-image-component`. It provides a simple API for lazy loading, blur-up loading effects, and customizable fallback images for error handling.
+
+## Installation
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/image.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/image.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/image.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/image.json
+        ```
+      </Tab>
+    </Tabs>
+  </Tab>
+  <Tab value="Manual">
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install react-lazy-load-image-component
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/image.tsx`
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
 
 ## Usage
 
@@ -49,16 +91,16 @@ export default function Example() {
 
 ## Custom Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `src` | `string` | `undefined` | The source URL of the image. |
-| `alt` | `string` | `undefined` | Alt text for accessibility. |
-| `fallbackSrc` | `string` | `"/image-break.png"` | Image URL to use if the main `src` fails. |
-| `showBlurEffect` | `boolean` | `true` | Whether to show a blur effect during loading. |
-| `placeholder` | `React.ReactNode` | `undefined` | Custom element to show while loading. |
-| `onImageLoad` | `() => void` | `undefined` | Callback fired when the image successfully loads. |
-| `onImageError` | `(error: Event) => void` | `undefined` | Callback fired if image loading fails. |
-| `className` | `string` | `undefined` | Additional CSS classes for the image element. |
+| Prop             | Type                     | Default              | Description                                       |
+| ---------------- | ------------------------ | -------------------- | ------------------------------------------------- |
+| `src`            | `string`                 | `undefined`          | The source URL of the image.                      |
+| `alt`            | `string`                 | `undefined`          | Alt text for accessibility.                       |
+| `fallbackSrc`    | `string`                 | `"/image-break.png"` | Image URL to use if the main `src` fails.         |
+| `showBlurEffect` | `boolean`                | `true`               | Whether to show a blur effect during loading.     |
+| `placeholder`    | `React.ReactNode`        | `undefined`          | Custom element to show while loading.             |
+| `onImageLoad`    | `() => void`             | `undefined`          | Callback fired when the image successfully loads. |
+| `onImageError`   | `(error: Event) => void` | `undefined`          | Callback fired if image loading fails.            |
+| `className`      | `string`                 | `undefined`          | Additional CSS classes for the image element.     |
 
 > [!TIP]
 > This component extends `LazyLoadImageProps`, so you can use all properties from the original `react-lazy-load-image-component` such as `scrollPosition`, `threshold`, and `visibleByDefault`.

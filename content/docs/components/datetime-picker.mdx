@@ -9,6 +9,54 @@ import { DateTimePicker } from "@/components/tsxforge/datetime-picker";
 
 The `DateTimePicker` component allows users to select a date and time with high precision. It supports 12/24 hour cycles, multiple granularity levels, and localized formatting.
 
+## Installation
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/datetime-picker.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/datetime-picker.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/datetime-picker.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/datetime-picker.json
+        ```
+      </Tab>
+    </Tabs>
+  </Tab>
+  <Tab value="Manual">
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install date-fns lucide-react
+        ```
+      </Step>
+      <Step>
+        Install the following Shadcn UI components:
+        ```bash
+        npx shadcn@latest add popover calendar button input
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/datetime-picker.tsx`
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
 > [!NOTE]
 > This component is based on the [Spectrum UI DateTime Picker](https://ui.spectrumhq.in/docs/datetime-picker) and has been modified for enhanced integration with our design system.
 
@@ -32,6 +80,7 @@ export default function Example() {
   const [date, setDate] = useState<Date | undefined>(new Date())
 
 return (
+
 <div className="p-4 border rounded-lg max-w-sm">
 <DateTimePicker
         value={date}
