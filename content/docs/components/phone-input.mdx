@@ -11,24 +11,49 @@ The `PhoneInput` component leverages `react-phone-number-input` to provide a sea
 
 ## Installation
 
-<Tabs items={["CLI", "Manual"]}>
-  <Tab value="CLI">
-```bash
-npx shadcn@latest add https://tsxforge.vercel.app/registry/phone-input.json
-```
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/phone-input.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/phone-input.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/phone-input.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/phone-input.json
+        ```
+      </Tab>
+    </Tabs>
   </Tab>
   <Tab value="Manual">
-
-1. Install the following dependencies:
-```bash
-npm install react-phone-number-input lucide-react
-```
-2. Install the following Shadcn UI components:
-```bash
-npx shadcn@latest add popover command button input
-```
-3. Copy the component code to `src/components/tsxforge/phone-input.tsx`
-
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install react-phone-number-input lucide-react
+        ```
+      </Step>
+      <Step>
+        Install the following Shadcn UI components:
+        ```bash
+        npx shadcn@latest add popover command button input
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/phone-input.tsx`
+      </Step>
+    </Steps>
   </Tab>
 </Tabs>
 

@@ -11,20 +11,43 @@ The `Image` component is built on top of `react-lazy-load-image-component`. It p
 
 ## Installation
 
-<Tabs items={["CLI", "Manual"]}>
-  <Tab value="CLI">
-```bash
-npx shadcn@latest add https://tsxforge.vercel.app/registry/image.json
-```
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/image.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/image.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/image.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/image.json
+        ```
+      </Tab>
+    </Tabs>
   </Tab>
   <Tab value="Manual">
-
-1. Install the following dependencies:
-```bash
-npm install react-lazy-load-image-component
-```
-2. Copy the component code to `src/components/tsxforge/image.tsx`
-
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install react-lazy-load-image-component
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/image.tsx`
+      </Step>
+    </Steps>
   </Tab>
 </Tabs>
 

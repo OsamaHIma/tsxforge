@@ -11,24 +11,49 @@ The `ColorPicker` component allows users to select a color from a Chrome-style p
 
 ## Installation
 
-<Tabs items={["CLI", "Manual"]}>
-  <Tab value="CLI">
-```bash
-npx shadcn@latest add https://tsxforge.vercel.app/registry/color-picker.json
-```
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/color-picker.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/color-picker.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/color-picker.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/color-picker.json
+        ```
+      </Tab>
+    </Tabs>
   </Tab>
   <Tab value="Manual">
-
-1. Install the following dependencies:
-```bash
-npm install react-color
-```
-2. Install the following Shadcn UI components:
-```bash
-npx shadcn@latest add popover button
-```
-3. Copy the component code to `src/components/tsxforge/color-picker.tsx`
-
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install react-color
+        ```
+      </Step>
+      <Step>
+        Install the following Shadcn UI components:
+        ```bash
+        npx shadcn@latest add popover button
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/color-picker.tsx`
+      </Step>
+    </Steps>
   </Tab>
 </Tabs>
 

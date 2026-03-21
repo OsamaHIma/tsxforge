@@ -11,25 +11,52 @@ The `ImageUpload` component manages sophisticated image capturing routines invol
 
 ## Installation
 
-<Tabs items={["CLI", "Manual"]}>
-  <Tab value="CLI">
-```bash
-npx shadcn@latest add https://tsxforge.vercel.app/registry/image-upload.json
-```
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/image-upload.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/image-upload.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/image-upload.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/image-upload.json
+        ```
+      </Tab>
+    </Tabs>
   </Tab>
   <Tab value="Manual">
-
-1. Install the following dependencies:
-```bash
-npm install lucide-react
-```
-2. Install the following Shadcn UI components:
-```bash
-npx shadcn@latest add button
-```
-3. Copy the component code to `src/components/tsxforge/image-upload.tsx`
-4. This component requires the `use-file-upload` hook. Copy it to `src/hooks/use-file-upload.ts`
-
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install lucide-react
+        ```
+      </Step>
+      <Step>
+        Install the following Shadcn UI components:
+        ```bash
+        npx shadcn@latest add button
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/image-upload.tsx`
+      </Step>
+      <Step>
+        This component requires the `use-file-upload` hook. Copy it to `src/hooks/use-file-upload.ts`
+      </Step>
+    </Steps>
   </Tab>
 </Tabs>
 

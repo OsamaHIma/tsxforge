@@ -14,32 +14,93 @@ TsxForge provides an enhanced `<Button />` and `<ButtonLink />` that wrap the un
 
 ## Installation
 
-<Tabs items={["CLI", "Manual"]}>
-  <Tab value="CLI">
-
-### Install **Button**
-```bash
-npx shadcn@latest add https://tsxforge.vercel.app/registry/button.json
-```
-
-### Install **ButtonLink**
-```bash
-npx shadcn@latest add https://tsxforge.vercel.app/registry/button-link.json
-```
-
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        <div className="flex flex-col gap-4">
+          <div>
+            <p className="mb-2 text-sm font-semibold">Install **Button**:</p>
+            ```bash
+            pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/button.json
+            ```
+          </div>
+          <div>
+            <p className="mb-2 text-sm font-semibold">Install **ButtonLink**:</p>
+            ```bash
+            pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/button-link.json
+            ```
+          </div>
+        </div>
+      </Tab>
+      <Tab value="npm">
+        <div className="flex flex-col gap-4">
+          <div>
+            <p className="mb-2 text-sm font-semibold">Install **Button**:</p>
+            ```bash
+            npx shadcn@latest add https://tsxforge.vercel.app/registry/button.json
+            ```
+          </div>
+          <div>
+            <p className="mb-2 text-sm font-semibold">Install **ButtonLink**:</p>
+            ```bash
+            npx shadcn@latest add https://tsxforge.vercel.app/registry/button-link.json
+            ```
+          </div>
+        </div>
+      </Tab>
+      <Tab value="yarn">
+        <div className="flex flex-col gap-4">
+          <div>
+            <p className="mb-2 text-sm font-semibold">Install **Button**:</p>
+            ```bash
+            npx shadcn@latest add https://tsxforge.vercel.app/registry/button.json
+            ```
+          </div>
+          <div>
+            <p className="mb-2 text-sm font-semibold">Install **ButtonLink**:</p>
+            ```bash
+            npx shadcn@latest add https://tsxforge.vercel.app/registry/button-link.json
+            ```
+          </div>
+        </div>
+      </Tab>
+      <Tab value="bun">
+        <div className="flex flex-col gap-4">
+          <div>
+            <p className="mb-2 text-sm font-semibold">Install **Button**:</p>
+            ```bash
+            bunx shadcn@latest add https://tsxforge.vercel.app/registry/button.json
+            ```
+          </div>
+          <div>
+            <p className="mb-2 text-sm font-semibold">Install **ButtonLink**:</p>
+            ```bash
+            bunx shadcn@latest add https://tsxforge.vercel.app/registry/button-link.json
+            ```
+          </div>
+        </div>
+      </Tab>
+    </Tabs>
   </Tab>
   <Tab value="Manual">
-
-1. Install the following dependencies:
-```bash
-npm install lucide-react @hugeicons/react @hugeicons/core-free-icons
-```
-2. Install the following Shadcn UI components:
-```bash
-npx shadcn@latest add button
-```
-3. Copy the component code to `src/components/tsxforge/button.tsx` or `button-link.tsx`
-
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install lucide-react @hugeicons/react @hugeicons/core-free-icons
+        ```
+      </Step>
+      <Step>
+        Install the following Shadcn UI components:
+        ```bash
+        npx shadcn@latest add button
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/button.tsx` or `button-link.tsx`
+      </Step>
+    </Steps>
   </Tab>
 </Tabs>
 

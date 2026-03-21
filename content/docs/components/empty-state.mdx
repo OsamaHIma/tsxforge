@@ -12,24 +12,49 @@ The `EmptyState` component unifies application "fallbacks", serving distinct pur
 
 ## Installation
 
-<Tabs items={["CLI", "Manual"]}>
-  <Tab value="CLI">
-```bash
-npx shadcn@latest add https://tsxforge.vercel.app/registry/empty-state.json
-```
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/empty-state.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/empty-state.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/empty-state.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/empty-state.json
+        ```
+      </Tab>
+    </Tabs>
   </Tab>
   <Tab value="Manual">
-
-1. Install the following dependencies:
-```bash
-npm install lucide-react
-```
-2. Install the following Shadcn UI components:
-```bash
-npx shadcn@latest add button
-```
-3. Copy the component code to `src/components/tsxforge/empty-state.tsx`
-
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install lucide-react
+        ```
+      </Step>
+      <Step>
+        Install the following Shadcn UI components:
+        ```bash
+        npx shadcn@latest add button
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/empty-state.tsx`
+      </Step>
+    </Steps>
   </Tab>
 </Tabs>
 
