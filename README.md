@@ -1,14 +1,14 @@
 # TsxForge 🛠️
 
-**Powerful wrapper components extending generic UI primitives with declarative APIs and robust integrations.**
+**Functional React primitives with built-in logic, state management, and robust integrations.**
 
-TsxForge is a collection of high-performance, accessible, and highly customizable React components built on top of Tailwind CSS and shadcn/ui. It is designed to reduce boilerplate and provide a premium developer experience for building modern web applications.
+TsxForge isn't just a UI library—it's a collection of **Smart Primitives**. While libraries like Shadcn UI provide the "building blocks" (UI), TsxForge provides the "**brain**" (Logic). We handle the complex state management for features like pagination, file uploads, and internationalized inputs, so you don't have to.
 
 ## ✨ Features
 
-- 🧩 **Advanced Wrappers**: Components like `Table`, `Input`, and `DateTimePicker` with built-in logic.
+- 🧩 **Smart Primitives**: Components like `Pagination`, `ImageUpload`, and `PhoneInput` with built-in logic and state.
 - 🎨 **Modern Design**: Premium aesthetics with smooth animations and curated color palettes.
-- ♿ **Accessible**: Built with Radix UI primitives ensuring ARIA compliance.
+- ♿ **Accessible**: Built with Radix UI primitives ensuring ARIA compliance by default.
 - 🚀 **Performance**: Optimized for speed, including features like lazy loading for images.
 - 📚 **Documentation**: Comprehensive documentation powered by Fumadocs.
 - 🛠️ **Developer Friendly**: Strong TypeScript support and declarative APIs.
