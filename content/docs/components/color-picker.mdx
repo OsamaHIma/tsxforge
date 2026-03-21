@@ -16,7 +16,7 @@ The `ColorPicker` component allows users to select a color from a Chrome-style p
     <div className="not-prose p-4 max-w-sm mx-auto">
       <ColorPicker
         label="Select Color"
-        color="#3b82f6"
+        defaultValue="#3b82f6"
         onChange={(color) => console.log('Color Changed:', color)}
       />
     </div>
@@ -33,7 +33,7 @@ export default function Example() {
     <div className="p-4 border rounded-lg max-w-sm">
       <ColorPicker
         label="Theme Color"
-        color={color}
+        defaultValue={color}
         onChange={setColor}
       />
     </div>
