@@ -12,6 +12,40 @@ import { SearchIcon } from "@hugeicons/core-free-icons"
 
 TsxForge provides an enhanced `<Button />` and `<ButtonLink />` that wrap the underlying standard components with additional utility props for typical application needs.
 
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+  <Tab value="CLI">
+    <div className="flex flex-col gap-4">
+      <div>
+        <p className="mb-2">Install **Button**:</p>
+        ```bash
+        npx shadcn@latest add https://tsxforge.com/registry/button.json
+        ```
+      </div>
+      <div>
+        <p className="mb-2">Install **ButtonLink**:</p>
+        ```bash
+        npx shadcn@latest add https://tsxforge.com/registry/button-link.json
+        ```
+      </div>
+    </div>
+  </Tab>
+  <Tab value="Manual">
+    <div className="flex flex-col gap-2">
+      <p>1. Install the following dependencies:</p>
+      ```bash
+      npm install lucide-react @hugeicons/react @hugeicons/core-free-icons
+      ```
+      <p>2. Install the following Shadcn UI components:</p>
+      ```bash
+      npx shadcn@latest add button
+      ```
+      <p>3. Copy the component code to `src/components/tsxforge/button.tsx` or `button-link.tsx`</p>
+    </div>
+  </Tab>
+</Tabs>
+
 ## Button
 
 The `Button` component builds upon standard button styling with built-in loading states and content slots, making it easier to build complex buttons without additional wrapper elements.

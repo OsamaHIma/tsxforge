@@ -1,0 +1,18 @@
+{
+  "name": "color-picker",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-color"
+  ],
+  "registryDependencies": [
+    "popover",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "tsxforge/color-picker.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport * as ColorPickerLib from \"react-color\";\r\n\r\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/components/ui/popover\";\r\nimport { Button } from \"@/components/tsxforge/button\";\r\nimport { Label } from \"@/components/ui/label\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\n// Safer extraction for ChromePicker\r\nconst ChromePicker = (ColorPickerLib as any).ChromePicker ?? ColorPickerLib;\r\n\r\n// Types\r\nexport interface ColorPickerProps {\r\n  value?: string; // controlled\r\n  defaultValue?: string; // uncontrolled\r\n  onChange?: (color: string) => void;\r\n  label?: string;\r\n  id?: string;\r\n  className?: string;\r\n  disabled?: boolean;\r\n}\r\n\r\nexport const ColorPicker = React.forwardRef<HTMLButtonElement, ColorPickerProps>(\r\n  (\r\n    {\r\n      value,\r\n      defaultValue = \"#000000\",\r\n      onChange,\r\n      label,\r\n      id,\r\n      className,\r\n      disabled,\r\n    },\r\n    ref\r\n  ) => {\r\n    const isControlled = value !== undefined;\r\n    const [internalColor, setInternalColor] = React.useState(defaultValue);\r\n\r\n    const color = isControlled ? value : internalColor;\r\n\r\n    const handleChange = (newColor: any) => {\r\n      const hex = newColor?.hex ?? \"#000000\";\r\n\r\n      if (!isControlled) {\r\n        setInternalColor(hex);\r\n      }\r\n\r\n      onChange?.(hex);\r\n    };\r\n\r\n    return (\r\n      <div className={cn(\"space-y-3\", className)}>\r\n        {label && (\r\n          <Label htmlFor={id} className=\"text-sm font-medium\">\r\n            {label}\r\n          </Label>\r\n        )}\r\n\r\n        <Popover>\r\n          <PopoverTrigger asChild>\r\n            <Button\r\n              ref={ref}\r\n              id={id}\r\n              type=\"button\"\r\n              variant=\"outline\"\r\n              disabled={disabled}\r\n              className={cn(\r\n                \"w-full justify-start gap-2 font-normal\",\r\n                \"h-11\"\r\n              )}\r\n            >\r\n              <span\r\n                className=\"h-5 w-5 rounded-md border\"\r\n                style={{ backgroundColor: color }}\r\n              />\r\n              <span className=\"text-muted-foreground\">{color}</span>\r\n            </Button>\r\n          </PopoverTrigger>\r\n\r\n          <PopoverContent\r\n            align=\"start\"\r\n            className=\"w-auto p-0 border-none\"\r\n          >\r\n            <ChromePicker\r\n              color={color}\r\n              onChange={handleChange}\r\n              className=\"w-auto p-3 rounded-lg! shadow-md bg-popover!  text-popover-foreground!\"\r\n              disableAlpha\r\n            />\r\n          </PopoverContent>\r\n        </Popover>\r\n      </div>\r\n    );\r\n  }\r\n);\r\n\r\nColorPicker.displayName = \"ColorPicker\";\r\n\r\nexport default ColorPicker;\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "action-confirmation-dialog",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "alert-dialog",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "tsxforge/action-confirmation-dialog.tsx",
+      "content": "'use client'\r\nimport React from \"react\";\r\nimport { HugeiconsIcon, type IconSvgElement } from \"@hugeicons/react\";\r\nimport { Alert01Icon } from \"@hugeicons/core-free-icons\";\r\n\r\nimport type { ReactNode } from \"react\";\r\nimport {\r\n  AlertDialog,\r\n  AlertDialogAction,\r\n  AlertDialogCancel,\r\n  AlertDialogContent,\r\n  AlertDialogDescription,\r\n  AlertDialogFooter,\r\n  AlertDialogHeader,\r\n  AlertDialogMedia,\r\n  AlertDialogTitle,\r\n  AlertDialogTrigger,\r\n} from \"@/components/ui/alert-dialog\";\r\n\r\ninterface ActionConfirmationDialogProps {\r\n  title?: string;\r\n  description?: string;\r\n  action: () => void;\r\n  children: ReactNode;\r\n  asChild?: boolean;\r\n  className?: string;\r\n  confirmText?: string;\r\n  cancelText?: string;\r\n  icon?: IconSvgElement;\r\n}\r\n\r\nconst ActionConfirmationDialog: React.FC<ActionConfirmationDialogProps> = ({\r\n  title = \"Are You sure\",\r\n  description = \"This action can not be undone\",\r\n  confirmText = \"Confirm\",\r\n  cancelText = \"Cancel\",\r\n  icon = Alert01Icon,\r\n  action,\r\n  children,\r\n  asChild = true,\r\n  className,\r\n}) => {\r\n  return (\r\n    <AlertDialog>\r\n      <AlertDialogTrigger asChild={asChild} className={className}>\r\n        {children}\r\n      </AlertDialogTrigger>\r\n      <AlertDialogContent\r\n        className=\"p-6 sm:max-w-md! rounded-4xl border-none bg-muted\"\r\n        aria-describedby=\"action-confirmation-description\"\r\n      >\r\n        <AlertDialogHeader className=\"gap-5 place-items-center! text-center\">\r\n          <div className=\"flex flex-col items-center gap-5\">\r\n            <AlertDialogMedia className=\"relative flex items-center justify-center size-17 sm:size-23 rounded-full bg-destructive text-white shadow-[0_0_0_6px_theme(colors.gray.800),0_0_0_12px_theme(colors.destructive)]\">\r\n              <HugeiconsIcon icon={icon} className=\"size-11 sm:size-15\" />\r\n            </AlertDialogMedia>\r\n            <AlertDialogTitle>{title}</AlertDialogTitle>\r\n          </div>\r\n          {description && (\r\n            <AlertDialogDescription id=\"action-confirmation-description\">\r\n              {description}\r\n            </AlertDialogDescription>\r\n          )}\r\n        </AlertDialogHeader>\r\n        <AlertDialogFooter className=\"flex! flex-col! gap-4 border-none\">\r\n          <AlertDialogAction size=\"lg\" onClick={action} variant=\"destructive\">\r\n            {confirmText}\r\n          </AlertDialogAction>\r\n          <AlertDialogCancel size=\"lg\" variant=\"flat\" className=\"border-none\">\r\n            {cancelText}\r\n          </AlertDialogCancel>\r\n        </AlertDialogFooter>\r\n      </AlertDialogContent>\r\n    </AlertDialog>\r\n  );\r\n};\r\n\r\nexport default ActionConfirmationDialog;\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

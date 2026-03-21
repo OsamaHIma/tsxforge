@@ -9,6 +9,30 @@ import ImageUpload from "@/components/tsxforge/image-upload"
 
 The `ImageUpload` component manages sophisticated image capturing routines involving Drag-and-Drop, single-or-multiple file validation checks, size constraints, and real-time previews utilizing the custom `Image` component.
 
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+  <Tab value="CLI">
+    ```bash
+    npx shadcn@latest add https://tsxforge.com/registry/image-upload.json
+    ```
+  </Tab>
+  <Tab value="Manual">
+    <div className="flex flex-col gap-2">
+      <p>1. Install the following dependencies:</p>
+      ```bash
+      npm install lucide-react
+      ```
+      <p>2. Install the following Shadcn UI components:</p>
+      ```bash
+      npx shadcn@latest add button
+      ```
+      <p>3. Copy the component code to `src/components/tsxforge/image-upload.tsx`</p>
+      <p>4. This component requires the `use-file-upload` hook. Copy it to `src/hooks/use-file-upload.ts`</p>
+    </div>
+  </Tab>
+</Tabs>
+
 ## Usage
 
 <Tabs items={['Preview', 'Code']}>
