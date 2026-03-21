@@ -25,8 +25,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Input } from "@/components/ui/input";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Input } from "@/components/tsxforge/input";
+import { Button, buttonVariants } from "@/components/tsxforge/button";
 
 // ---------- utils start ----------
 /**
@@ -724,7 +724,7 @@ const DateTimePicker = React.forwardRef<
     },
     ref,
   ) => {
-    const language = "ar";
+    const language: "en" | "ar" = "en";
     // Resolve date-fns locale from a localiztion package like i18next when no locale prop provided
     const resolvedLocale = React.useMemo(() => {
       if (locale && locale !== enUS) return locale;

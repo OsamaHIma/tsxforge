@@ -1,0 +1,60 @@
+---
+title: ColorPicker
+description: A Popover-based color selection component.
+---
+
+import ColorPicker from "@/components/tsxforge/color-picker"
+
+# ColorPicker
+
+The `ColorPicker` component allows users to select a color from a Chrome-style picker. It is built using a Popover and integrates seamlessly with the design system.
+
+## Usage
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="p-4 max-w-sm mx-auto">
+      <ColorPicker
+        label="Select Color"
+        color="#3b82f6"
+        onChange={(color) => console.log('Color Changed:', color)}
+      />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import { useState } from 'react'
+import { ColorPicker } from "@/components/tsxforge/color-picker"
+
+export default function Example() {
+  const [color, setColor] = useState('#3b82f6')
+
+  return (
+    <div className="p-4 border rounded-lg max-w-sm">
+      <ColorPicker
+        label="Theme Color"
+        color={color}
+        onChange={setColor}
+      />
+    </div>
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Features
+
+- **Popover Integration**: Saves screen real estate by opening the picker in a toggleable overlay.
+- **ChromePicker**: Familiar interface for precise color selection.
+- **Accessibility**: Includes optional label support with `htmlFor` matching.
+
+## Custom Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `color` | `string` | `"#000000"` | The current hex color value. |
+| `onChange` | `(color: string) => void` | `undefined` | Callback triggered when a new color is selected. |
+| `label` | `string` | `undefined` | Optional label text displayed above the picker button. |
+| `id` | `string` | `undefined` | Unique identifier for the component. |
+| `className` | `string` | `undefined` | Additional CSS classes for the container. |

@@ -1,0 +1,77 @@
+---
+title: DateTimePicker
+description: Advanced date and time selection component.
+---
+
+import { DateTimePicker } from "@/components/tsxforge/datetime-picker";
+
+# DateTimePicker
+
+The `DateTimePicker` component allows users to select a date and time with high precision. It supports 12/24 hour cycles, multiple granularity levels, and localized formatting.
+
+> [!NOTE]
+> This component is based on the [Spectrum UI DateTime Picker](https://ui.spectrumhq.in/docs/datetime-picker) and has been modified for enhanced integration with our design system.
+
+## Usage
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="p-4 max-w-sm mx-auto">
+      <DateTimePicker
+        placeholder="Select Date & Time"
+        onChange={(date) => console.log('Date Selected:', date)}
+      />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import { useState } from 'react'
+import { DateTimePicker } from "@/components/tsxforge/datetime-picker"
+
+export default function Example() {
+  const [date, setDate] = useState<Date | undefined>(new Date())
+
+return (
+<div className="p-4 border rounded-lg max-w-sm">
+<DateTimePicker
+        value={date}
+        onChange={setDate}
+        hourCycle={12}
+        granularity="minute"
+      />
+</div>
+)
+}
+
+```
+  </Tab>
+</Tabs>
+
+## Features
+
+- **Precise Timing**: Selection for hours, minutes, and seconds.
+- **Hour Cycles**: Easy switching between 12-hour (AM/PM) and 24-hour formats.
+- **Granularity Control**: Focus on the level of detail needed (day, hour, minute, or second).
+- **Date Range**: Customizable year range for quick navigation.
+- **Formatting**: Integrated `date-fns` formatting for display and output.
+
+## Custom Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `value` | `Date` | `undefined` | The selected date and time. |
+| `onChange` | `(date: Date \| undefined) => void` | `undefined` | Callback for date selection. |
+| `onChangeFormatted` | `(formatted: string \| undefined) => void` | `undefined` | Callback returning formatted date string. |
+| `disabled` | `boolean` | `false` | Whether the picker is disabled. |
+| `hourCycle` | `12 \| 24` | `12` | The time format (AM/PM or 24h). |
+| `placeholder` | `string` | `"Pick a date"` | Toggle button placeholder text. |
+| `yearRange` | `number` | `50` | Range of years to display in the dropdown. |
+| `granularity` | `day \| hour \| minute \| second` | `"second"` | Smallest unit displayed. |
+| `displayFormat` | `object` | `{ hour12: "dd-MM-yyyy" }` | Format string for the toggle label. |
+| `outputFormat` | `string` | `"dd-MM-yyyy"` | Format string for `onChangeFormatted`. |
+| `locale` | `Locale` | `enUS` / `ar` | `date-fns` locale for localization. |
+
+## Credits
+
+Special thanks to [Spectrum UI](https://ui.spectrumhq.in/docs/datetime-picker) for the original component architecture.
+```

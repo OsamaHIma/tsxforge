@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { ChromePicker } from 'react-color'
+import ColorPickerPackage from 'react-color'
+const { ChromePicker } = ColorPickerPackage
 import {
   Popover,
   PopoverContent,
