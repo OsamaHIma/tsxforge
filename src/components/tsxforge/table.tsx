@@ -15,7 +15,7 @@ function Table({
   return (
     <ScrollArea
       className={cn(
-        'bg-card p-3 md:p-6 rounded-2xl border border-border overflow-hidden w-full whitespace-nowrap grid',
+        'bg-card p-3 md:p-6 rounded-lg border border-border overflow-hidden w-full whitespace-nowrap grid',
         classNames?.wrapper,
       )}
     >
