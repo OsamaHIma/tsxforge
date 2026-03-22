@@ -1,7 +1,9 @@
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
-import { Steps, Step } from 'fumadocs-ui/components/steps';
-import type { MDXComponents } from 'mdx/types';
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { Steps, Step } from "fumadocs-ui/components/steps";
+import type { MDXComponents } from "mdx/types";
+// import { FeedbackBlock } from "@/components/feedback/client";
+// import { onBlockFeedbackAction } from "@/lib/github";
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -10,6 +12,11 @@ export function getMDXComponents(components?: MDXComponents) {
     Tab,
     Steps,
     Step,
+    // FeedbackBlock: ({ children, ...rest }) => (
+    //   <FeedbackBlock {...rest} onSendAction={onBlockFeedbackAction}>
+    //     {children}
+    //   </FeedbackBlock>
+    // ),
     ...components,
   } satisfies MDXComponents;
 }
