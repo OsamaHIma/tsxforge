@@ -47,7 +47,7 @@ The `ColorPicker` component allows users to select a color from a Chrome-style p
       <Step>
         Install the following Shadcn UI components:
         ```bash
-        npx shadcn@latest add popover button
+        npx shadcn@latest add popover label
         ```
       </Step>
       <Step>
@@ -77,23 +77,23 @@ import { ColorPicker } from "@/components/tsxforge/color-picker"
 export default function Example() {
   const [color, setColor] = useState('#3b82f6')
 
-return (
-<div className="p-4 border rounded-lg max-w-sm">
-<ColorPicker
+  return (
+    <div className="p-4 border rounded-lg max-w-sm">
+      <ColorPicker
         label="Theme Color"
-        defaultValue={color}
+        value={color}
         onChange={setColor}
       />
-</div>
-)
+    </div>
+  )
 }
-
 ```
   </Tab>
 </Tabs>
 
 ## Features
 
+- **Controlled & Uncontrolled**: Supports both `value` (controlled) and `defaultValue` (uncontrolled) for flexible integration.
 - **Popover Integration**: Saves screen real estate by opening the picker in a toggleable overlay.
 - **ChromePicker**: Familiar interface for precise color selection.
 - **Accessibility**: Includes optional label support with `htmlFor` matching.
@@ -102,8 +102,10 @@ return (
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `color` | `string` | `"#000000"` | The current hex color value. |
+| `value` | `string` | `undefined` | The current hex color value (controlled). |
+| `defaultValue` | `string` | `"#000000"` | The initial color value (uncontrolled). |
 | `onChange` | `(color: string) => void` | `undefined` | Callback triggered when a new color is selected. |
 | `label` | `string` | `undefined` | Optional label text displayed above the picker button. |
+| `disabled` | `boolean` | `false` | Whether the color picker is disabled. |
 | `id` | `string` | `undefined` | Unique identifier for the component. |
 | `className` | `string` | `undefined` | Additional CSS classes for the container. |
