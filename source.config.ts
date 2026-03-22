@@ -18,7 +18,7 @@ export const docs = defineDocs({
 });
 
 export default defineConfig({
-  mdxOptions: {
-    remarkPlugins: [[remarkFeedbackBlock, feedbackOptions]],
-  },
+  // mdxOptions: {
+  //   remarkPlugins: [[remarkFeedbackBlock, feedbackOptions]],
+  // },
 });

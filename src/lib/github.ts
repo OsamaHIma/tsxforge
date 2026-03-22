@@ -16,8 +16,8 @@ let instance: Octokit | undefined;
 async function getOctokit(): Promise<Octokit> {
   if (instance) return instance;
   const appId = import.meta.env.VITE_GITHUB_APP_ID;
-  const privateKey = import.meta.env.VITE_GITHUB_APP_PRIVATE_KEY;
-  console.log(appId, privateKey);
+  const privateKey = import.meta.env.VITE_GITHUB_APP_PRIVATE_KEY?.replace(/\\n/g, "\n");
+
   if (!appId || !privateKey) {
     throw new Error(
       "No GitHub keys provided for Github app, docs feedback feature will not work.",
@@ -25,7 +25,7 @@ async function getOctokit(): Promise<Octokit> {
   }
 
   const app = new App({
-    appId,
+    appId: Number(appId),
     privateKey,
   });
 
@@ -110,7 +110,6 @@ async function createDiscussionThread(pageId: string, body: string) {
     throw new Error(
       `Please create a "${DocsCategory}" category in GitHub Discussion`,
     );
-
   const title = `Feedback for ${pageId}`;
   const {
     search: {

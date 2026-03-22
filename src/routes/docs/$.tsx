@@ -15,8 +15,8 @@ import { baseOptions, gitConfig } from "@/lib/layout.shared";
 import { useFumadocsLoader } from "fumadocs-core/source/client";
 import { Suspense } from "react";
 import { useMDXComponents } from "@/components/mdx";
-import { Feedback } from "@/components/feedback/client";
-import { onPageFeedbackAction } from "@/lib/github";
+// import { Feedback } from "@/components/feedback/client";
+// import { onPageFeedbackAction } from "@/lib/github";
 
 export const Route = createFileRoute("/docs/$")({
   component: Page,
@@ -74,7 +74,7 @@ const clientLoader = browserCollections.docs.createClientLoader({
         <DocsBody>
           <MDX components={useMDXComponents()} />
         </DocsBody>
-        <Feedback onSendAction={onPageFeedbackAction} />
+        {/* <Feedback onSendAction={onPageFeedbackAction} /> */}
       </DocsPage>
     );
   },
