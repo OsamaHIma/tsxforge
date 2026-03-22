@@ -1,8 +1,8 @@
-import { createFileRoute, notFound } from '@tanstack/react-router';
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
-import { createServerFn } from '@tanstack/react-start';
-import { source } from '@/lib/source';
-import browserCollections from 'collections/browser';
+import { createFileRoute, notFound } from "@tanstack/react-router";
+import { DocsLayout } from "fumadocs-ui/layouts/docs";
+import { createServerFn } from "@tanstack/react-start";
+import { source } from "@/lib/source";
+import browserCollections from "collections/browser";
 import {
   DocsBody,
   DocsDescription,
@@ -10,16 +10,18 @@ import {
   DocsTitle,
   MarkdownCopyButton,
   ViewOptionsPopover,
-} from 'fumadocs-ui/layouts/docs/page';
-import { baseOptions, gitConfig } from '@/lib/layout.shared';
-import { useFumadocsLoader } from 'fumadocs-core/source/client';
-import { Suspense } from 'react';
-import { useMDXComponents } from '@/components/mdx';
+} from "fumadocs-ui/layouts/docs/page";
+import { baseOptions, gitConfig } from "@/lib/layout.shared";
+import { useFumadocsLoader } from "fumadocs-core/source/client";
+import { Suspense } from "react";
+import { useMDXComponents } from "@/components/mdx";
+import { Feedback } from "@/components/feedback/client";
+import { onPageFeedbackAction } from "@/lib/github";
 
-export const Route = createFileRoute('/docs/$')({
+export const Route = createFileRoute("/docs/$")({
   component: Page,
   loader: async ({ params }) => {
-    const slugs = params._splat?.split('/') ?? [];
+    const slugs = params._splat?.split("/") ?? [];
     const data = await serverLoader({ data: slugs });
     await clientLoader.preload(data.path);
     return data;
@@ -27,7 +29,7 @@ export const Route = createFileRoute('/docs/$')({
 });
 
 const serverLoader = createServerFn({
-  method: 'GET',
+  method: "GET",
 })
   .inputValidator((slugs: string[]) => slugs)
   .handler(async ({ data: slugs }) => {
@@ -54,7 +56,12 @@ const clientLoader = browserCollections.docs.createClientLoader({
     },
   ) {
     return (
-      <DocsPage toc={toc}>
+      <DocsPage
+        toc={toc}
+        tableOfContent={{
+          style: "clerk",
+        }}
+      >
         <DocsTitle>{frontmatter.title}</DocsTitle>
         <DocsDescription>{frontmatter.description}</DocsDescription>
         <div className="flex flex-row gap-2 items-center border-b -mt-4 pb-6">
@@ -67,6 +74,7 @@ const clientLoader = browserCollections.docs.createClientLoader({
         <DocsBody>
           <MDX components={useMDXComponents()} />
         </DocsBody>
+        <Feedback onSendAction={onPageFeedbackAction} />
       </DocsPage>
     );
   },
@@ -74,11 +82,13 @@ const clientLoader = browserCollections.docs.createClientLoader({
 
 function Page() {
   const { path, pageTree, slugs } = useFumadocsLoader(Route.useLoaderData());
-  const markdownUrl = `/llms.mdx/docs/${slugs.join('/')}`;
+  const markdownUrl = `/llms.mdx/docs/${slugs.join("/")}`;
 
   return (
     <DocsLayout {...baseOptions()} tree={pageTree}>
-      <Suspense>{clientLoader.useContent(path, { markdownUrl, path })}</Suspense>
+      <Suspense>
+        {clientLoader.useContent(path, { markdownUrl, path })}
+      </Suspense>
     </DocsLayout>
   );
 }

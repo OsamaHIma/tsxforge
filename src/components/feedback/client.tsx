@@ -78,6 +78,7 @@ export function Feedback({
       };
 
       const response = await onSendAction(feedback);
+      console.log(response);
       setPrevious({
         response,
         ...feedback,
@@ -182,7 +183,10 @@ export function Feedback({
             />
             <button
               type="submit"
-              className={cn(buttonVariants({ variant: "outline" }), "w-fit px-3")}
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "w-fit px-3",
+              )}
               disabled={isPending}
             >
               Submit
@@ -208,7 +212,7 @@ export function FeedbackBlock({
   onSendAction: (feedback: BlockFeedback) => Promise<ActionResponse>;
   children: ReactNode;
 }) {
-  const {pathname: url} = useLocation();
+  const { pathname: url } = useLocation();
   const blockId = `${url}-${id}`;
   const { previous, setPrevious } = useSubmissionStorage(blockId, (v) => {
     const result = blockFeedbackResult.safeParse(v);
@@ -253,7 +257,7 @@ export function FeedbackBlock({
         <PopoverTrigger
           className={cn(
             buttonVariants({ variant: "secondary", size: "sm" }),
-            "absolute -top-7 end-0 backdrop-blur-sm text-fd-muted-foreground gap-1.5 transition-all duration-100 data-[state=open]:bg-fd-accent data-[state=open]:text-fd-accent-foreground",
+            "absolute -top-5 end-0 backdrop-blur-sm text-fd-muted-foreground gap-1.5 transition-all duration-100 data-[state=open]:bg-fd-accent data-[state=open]:text-fd-accent-foreground",
             !open &&
               "opacity-0 pointer-events-none group-hover/feedback:pointer-events-auto group-hover/feedback:opacity-100 group-hover/feedback:delay-100 hover:pointer-events-auto hover:opacity-100 hover:delay-100",
           )}

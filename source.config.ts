@@ -1,7 +1,15 @@
-import { defineConfig, defineDocs } from 'fumadocs-mdx/config';
+import { defineConfig, defineDocs } from "fumadocs-mdx/config";
+import {
+  remarkFeedbackBlock,
+  type RemarkFeedbackBlockOptions,
+} from "fumadocs-core/mdx-plugins/remark-feedback-block";
+
+const feedbackOptions: RemarkFeedbackBlockOptions = {
+  // other options:
+};
 
 export const docs = defineDocs({
-  dir: 'content/docs',
+  dir: "content/docs",
   docs: {
     postprocess: {
       includeProcessedMarkdown: true,
@@ -9,4 +17,8 @@ export const docs = defineDocs({
   },
 });
 
-export default defineConfig();
+export default defineConfig({
+  mdxOptions: {
+    remarkPlugins: [[remarkFeedbackBlock, feedbackOptions]],
+  },
+});
