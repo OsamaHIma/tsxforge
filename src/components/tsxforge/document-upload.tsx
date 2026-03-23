@@ -7,6 +7,7 @@ import {
 import { forwardRef, useImperativeHandle, useState } from "react";
 import { formatBytes, useFileUpload } from "@/hooks/use-file-upload";
 import { Button } from "@/components/tsxforge/button";
+import { cn } from "@/lib/utils";
 
 interface DocumentFileUploadProps {
   onFileChange?: (file: File | null) => void;
@@ -15,6 +16,7 @@ interface DocumentFileUploadProps {
   disabled?: boolean;
   initialFile?: File | null;
   initialUrl?: string;
+  className?: string;
 }
 
 export interface DocumentFileUploadRef {
@@ -34,6 +36,7 @@ const DocumentFileUpload = forwardRef<
       disabled = false,
       initialFile = null,
       initialUrl = null,
+      className,
     },
     ref,
   ) => {
@@ -93,7 +96,7 @@ const DocumentFileUpload = forwardRef<
     const hasExistingFile = Boolean(initialUrl && !initialUrlCleared);
 
     return (
-      <div className="flex flex-col gap-2">
+      <div className={cn("flex flex-col gap-2", className)}>
         {/* Drop area */}
         <div
           role="button"

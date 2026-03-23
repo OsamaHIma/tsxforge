@@ -3,8 +3,9 @@ title: Action Confirmation Dialog
 description: Declarative wrapper for confirm/cancel modal flows.
 ---
 
-import ActionConfirmationDialog from "@/components/tsxforge/action-confirmation-dialog"
-import { Button } from "@/components/tsxforge/button"
+import ActionConfirmationDialog from "@/components/tsxforge/action-confirmation-dialog";
+import { Button } from "@/components/tsxforge/button";
+import { ActionConfirmationBasicDemo, ActionConfirmationCustomDemo } from "@/components/tsxforge/action-confirmation-demo";
 
 # Action Confirmation Dialog
 
@@ -54,17 +55,12 @@ The `ActionConfirmationDialog` simplifies the implementation of critical actions
 
 ## Usage
 
+A declarative way to handle destructive or critical actions.
+
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
-    <div className="not-prose flex justify-center p-4 border rounded-lg">
-      <ActionConfirmationDialog 
-        title="Delete Account?"
-        description="You cannot undo this operation."
-        action={() => console.log('Action Confirmed!')}
-        confirmText="Yes, delete it"
-      >
-        <Button variant="destructive">Remove Action</Button>
-      </ActionConfirmationDialog>
+    <div className="not-prose p-4">
+      <ActionConfirmationBasicDemo />
     </div>
   </Tab>
   <Tab value="Code">
@@ -74,22 +70,45 @@ import { Button } from "@/components/tsxforge/button"
 
 export default function Example() {
   const handleDelete = () => {
-    // Proceed with destructive behavior...
+    // Proceed with action...
   }
 
   return (
-    <div className="flex justify-center">
-      <ActionConfirmationDialog 
-        title="Delete Account?"
-        description="You cannot undo this operation."
-        action={handleDelete}
-        confirmText="Yes, delete it"
-      >
-        <Button variant="destructive">Remove Action</Button>
-      </ActionConfirmationDialog>
-    </div>
+    <ActionConfirmationDialog 
+      title="Delete Account?"
+      description="You cannot undo this operation."
+      action={handleDelete}
+      confirmText="Yes, delete it"
+    >
+      <Button variant="destructive">Delete Account</Button>
+    </ActionConfirmationDialog>
   )
 }
+```
+  </Tab>
+</Tabs>
+
+## Custom Options
+
+You can customize the confirm and cancel button labels to provide better context for the user.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-4">
+      <ActionConfirmationCustomDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+<ActionConfirmationDialog 
+  title="Archive Project?"
+  description="The project will be moved to the archive."
+  action={handleArchive}
+  confirmText="Archive"
+  cancelText="Keep Project"
+>
+  <Button variant="outline">Archive Project</Button>
+</ActionConfirmationDialog>
 ```
   </Tab>
 </Tabs>

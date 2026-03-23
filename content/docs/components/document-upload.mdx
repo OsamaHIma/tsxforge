@@ -4,6 +4,7 @@ description: Secure and versatile file uploader for documents and images.
 ---
 
 import DocumentFileUpload from "@/components/tsxforge/document-upload";
+import { DocumentUploadBasicDemo, DocumentUploadInitialDemo } from "@/components/tsxforge/document-upload-demo";
 
 # DocumentFileUpload
 
@@ -59,29 +60,49 @@ The `DocumentFileUpload` component provides a robust interface for uploading doc
 
 ## Usage
 
+Modern and secure file uploader for documents and assets.
+
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
-    <div className="not-prose p-4 max-w-md mx-auto">
-      <DocumentFileUpload
-        onFileChange={(file) => console.log('File Selected:', file)}
-      />
+    <div className="not-prose p-4">
+      <DocumentUploadBasicDemo />
     </div>
   </Tab>
   <Tab value="Code">
 ```tsx
 import DocumentFileUpload from "@/components/tsxforge/document-upload"
+import { useState } from 'react'
 
 export default function Example() {
+  const [file, setFile] = useState<File | null>(null);
+
   return (
-    <div className="p-4 border rounded-lg max-w-md">
-      <DocumentFileUpload
-        onFileChange={(file) => console.log('File Selected:', file)}
-        maxSize={5 * 1024 * 1024}
-        accept=".pdf,.doc,.docx,.jpg,.png"
-      />
-    </div>
+    <DocumentFileUpload
+      onFileChange={setFile}
+      maxSize={5 * 1024 * 1024} // 5MB
+      accept=".pdf,.doc,.docx,.jpg,.png"
+    />
   )
 }
+```
+  </Tab>
+</Tabs>
+
+## Initial State
+
+Display an existing file by providing an `initialUrl`.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-4">
+      <DocumentUploadInitialDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+<DocumentFileUpload
+  initialUrl="https://example.com/sample-document.pdf"
+/>
 ```
   </Tab>
 </Tabs>

@@ -8,6 +8,7 @@ import {
   Image01Icon,
   Upload01Icon,
 } from "@hugeicons/core-free-icons";
+import { cn } from "@/lib/utils";
 
 interface ImageUploadProps {
   onFileChange?: (file: File | null) => void;
@@ -19,6 +20,7 @@ interface ImageUploadProps {
   initialImage?: string;
   initialImages?: string[];
   multiple?: boolean;
+  className?: string;
 }
 
 export interface ImageUploadRef {
@@ -38,6 +40,7 @@ const ImageUpload = forwardRef<ImageUploadRef, ImageUploadProps>(
       initialImage = null,
       initialImages = [],
       multiple = false,
+      className,
     },
     ref,
   ) => {
@@ -123,7 +126,7 @@ const ImageUpload = forwardRef<ImageUploadRef, ImageUploadProps>(
     const maxSizeMB = Math.round(maxSize / (1024 * 1024));
 
     return (
-      <div className="flex flex-col gap-2">
+      <div className={cn("flex flex-col gap-2", className)}>
         <div className="relative">
           {/* Drop area */}
           <div

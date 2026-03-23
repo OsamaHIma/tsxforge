@@ -4,6 +4,7 @@ description: Advanced date and time selection component.
 ---
 
 import { DateTimePicker } from "@/components/tsxforge/datetime-picker";
+import { DateTimePickerBasicDemo, DateTimePickerCyclesDemo, DateTimePickerGranularityDemo } from "@/components/tsxforge/datetime-picker-demo";
 
 # DateTimePicker
 
@@ -62,36 +63,68 @@ The `DateTimePicker` component allows users to select a date and time with high 
 
 ## Usage
 
+Modern and intuitive date-time selection with support for precise control.
+
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
-    <div className="not-prose p-4 max-w-sm mx-auto">
-      <DateTimePicker
-        placeholder="Select Date & Time"
-        onChange={(date) => console.log('Date Selected:', date)}
-      />
+    <div className="not-prose p-4">
+      <DateTimePickerBasicDemo />
     </div>
   </Tab>
   <Tab value="Code">
 ```tsx
-import { useState } from 'react'
 import { DateTimePicker } from "@/components/tsxforge/datetime-picker"
+import { useState } from 'react'
 
 export default function Example() {
   const [date, setDate] = useState<Date | undefined>(new Date())
 
-return (
-
-<div className="p-4 border rounded-lg max-w-sm">
-<DateTimePicker
-        value={date}
-        onChange={setDate}
-        hourCycle={12}
-        granularity="minute"
-      />
-</div>
-)
+  return (
+    <DateTimePicker
+      value={date}
+      onChange={setDate}
+      placeholder="Pick a date"
+    />
+  )
 }
+```
+  </Tab>
+</Tabs>
 
+## Hour Cycles
+
+Toggle between 12-hour (AM/PM) and 24-hour clock formats using the `hourCycle` prop.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-4">
+      <DateTimePickerCyclesDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+<DateTimePicker hourCycle={12} /> // 12-hour format
+<DateTimePicker hourCycle={24} /> // 24-hour format
+```
+  </Tab>
+</Tabs>
+
+## Granularity
+
+Control the precision of time selection. Granularity can be set to `day`, `hour`, `minute`, or `second`.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-4">
+      <DateTimePickerGranularityDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+<DateTimePicker granularity="day" />
+<DateTimePicker granularity="hour" />
+<DateTimePicker granularity="minute" />
+<DateTimePicker granularity="second" />
 ```
   </Tab>
 </Tabs>

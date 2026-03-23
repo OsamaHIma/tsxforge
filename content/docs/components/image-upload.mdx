@@ -4,6 +4,7 @@ description: Advanced file uploader component with drag-and-drop mechanics.
 ---
 
 import ImageUpload from "@/components/tsxforge/image-upload";
+import { ImageUploadSingleDemo, ImageUploadMultipleDemo, ImageUploadInitialDemo } from "@/components/tsxforge/image-upload-demo";
 
 # ImageUpload
 
@@ -62,31 +63,69 @@ The `ImageUpload` component manages sophisticated image capturing routines invol
 
 ## Usage
 
+Simple single image upload with automatic preview and size validation.
+
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
-    <div className="not-prose p-4 max-w-md mx-auto">
-      <ImageUpload
-        multiple={false}
-        maxSize={5 * 1024 * 1024}
-        onFileChange={(file) => console.log('Single File Selected:', file)}
-      />
+    <div className="not-prose p-4">
+      <ImageUploadSingleDemo />
     </div>
   </Tab>
   <Tab value="Code">
 ```tsx
 import ImageUpload from "@/components/tsxforge/image-upload"
+import { useState } from 'react'
 
 export default function Example() {
+  const [file, setFile] = useState<File | null>(null);
+
   return (
-    <div className="p-4 border rounded-lg max-w-md">
-      <ImageUpload
-        multiple={false}
-        maxSize={5 * 1024 * 1024}
-        onFileChange={(file) => console.log('Single File Selected:', file)}
-      />
-    </div>
+    <ImageUpload
+      multiple={false}
+      onFileChange={setFile}
+      maxSize={5 * 1024 * 1024} // 5MB
+    />
   )
 }
+```
+  </Tab>
+</Tabs>
+
+## Multiple Upload
+
+Enable the `multiple` prop to allow users to select more than one image. The selected images will be displayed in a responsive grid.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-4">
+      <ImageUploadMultipleDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+<ImageUpload
+  multiple={true}
+  onFilesChange={(files) => console.log("Files Selected:", files)}
+/>
+```
+  </Tab>
+</Tabs>
+
+## Initial State
+
+You can provide an `initialImage` (URL) or `initialFile` to pre-populate the uploader.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-4">
+      <ImageUploadInitialDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+<ImageUpload
+  initialImage="https://example.com/existing-image.jpg"
+/>
 ```
   </Tab>
 </Tabs>

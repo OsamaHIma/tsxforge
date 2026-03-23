@@ -4,6 +4,7 @@ description: A Popover-based color selection component.
 ---
 
 import ColorPicker from "@/components/tsxforge/color-picker";
+import { ColorPickerBasicDemo, ColorPickerDisabledDemo } from "@/components/tsxforge/color-picker-demo";
 
 # ColorPicker
 
@@ -59,34 +60,51 @@ The `ColorPicker` component allows users to select a color from a Chrome-style p
 
 ## Usage
 
+Interactive color selection with real-time feedback.
+
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
-    <div className="not-prose p-4 max-w-sm mx-auto">
-      <ColorPicker
-        label="Select Color"
-        defaultValue="#3b82f6"
-        onChange={(color) => console.log('Color Changed:', color)}
-      />
+    <div className="not-prose p-4">
+      <ColorPickerBasicDemo />
     </div>
   </Tab>
   <Tab value="Code">
 ```tsx
-import { useState } from 'react'
 import { ColorPicker } from "@/components/tsxforge/color-picker"
+import { useState } from 'react'
 
 export default function Example() {
   const [color, setColor] = useState('#3b82f6')
 
   return (
-    <div className="p-4 border rounded-lg max-w-sm">
-      <ColorPicker
-        label="Theme Color"
-        value={color}
-        onChange={setColor}
-      />
-    </div>
+    <ColorPicker
+      label="Theme Color"
+      value={color}
+      onChange={setColor}
+    />
   )
 }
+```
+  </Tab>
+</Tabs>
+
+## Disabled State
+
+The picker can be disabled to prevent user interaction.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-4">
+      <ColorPickerDisabledDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+<ColorPicker
+  label="Theme Color"
+  defaultValue="#3b82f6"
+  disabled={true}
+/>
 ```
   </Tab>
 </Tabs>

@@ -4,6 +4,7 @@ description: Simplified logic-driven pagination component.
 ---
 
 import Pagination from "@/components/tsxforge/pagination";
+import { PaginationBasicDemo, PaginationEllipsisDemo, PaginationConfigurableDemo } from "@/components/tsxforge/pagination-demo";
 
 # Pagination
 
@@ -59,10 +60,12 @@ The `Pagination` component eliminates the boilerplate associated with manual pag
 
 ## Usage
 
+The most basic implementation requires managing the current page state and providing the total number of pages.
+
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
-    <div className="not-prose flex flex-col items-center gap-6 p-4 overflow-x-auto">
-      <Pagination currentPage={3} totalPages={10} />
+    <div className="not-prose flex flex-col items-center gap-6 p-4">
+      <PaginationBasicDemo />
     </div>
   </Tab>
   <Tab value="Code">
@@ -74,17 +77,77 @@ export default function Example() {
   const [page, setPage] = useState(1);
   const totalPages = 10;
 
-return (
-<div className="flex flex-col items-center gap-6 p-4  overflow-x-auto">
-<Pagination 
+  return (
+    <div className="flex flex-col items-center gap-6 p-4 border rounded-xl bg-muted/20">
+      <Pagination 
         currentPage={page} 
         totalPages={totalPages} 
         onChange={setPage} 
       />
-</div>
-)
+    </div>
+  )
 }
+```
+  </Tab>
+</Tabs>
 
+## Ellipsis Behavior
+
+When dealing with a large number of pages, the component automatically inserts an ellipsis `...` to keep the UI compact and navigable.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose flex flex-col items-center gap-6 p-4">
+      <PaginationEllipsisDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import Pagination from "@/components/tsxforge/pagination"
+import { useState } from "react"
+
+export default function EllipsisExample() {
+  const [page, setPage] = useState(1);
+
+  return (
+    <Pagination 
+      currentPage={page} 
+      totalPages={50} 
+      onChange={setPage} 
+    />
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Items to Display
+
+You can customize how many page buttons are visible before the ellipsis appears using the `paginationItemsToDisplay` prop.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose flex flex-col items-center gap-6 p-4">
+      <PaginationConfigurableDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import Pagination from "@/components/tsxforge/pagination"
+import { useState } from "react"
+
+export default function ConfigurableExample() {
+  const [page, setPage] = useState(1);
+
+  return (
+    <Pagination 
+      currentPage={page} 
+      totalPages={20} 
+      paginationItemsToDisplay={5}
+      onChange={setPage} 
+    />
+  )
+}
 ```
   </Tab>
 </Tabs>
