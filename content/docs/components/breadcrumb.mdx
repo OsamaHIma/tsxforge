@@ -1,0 +1,138 @@
+---
+title: Breadcrumb
+description: A declarative, high-level navigation primitive for hierarchies.
+---
+
+import { Breadcrumb, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis } from "@/components/tsxforge/breadcrumb";
+import { BreadcrumbBasicDemo, BreadcrumbEllipsisDemo } from "@/components/tsxforge/breadcrumb-demo";
+
+# Breadcrumb
+
+The `Breadcrumb` component provides a simplified, declarative way to render breadcrumb navigation. Unlike the standard Shadcn UI breadcrumb which requires manual orchestration of lists and items, the TsxForge version automatically handles structure and separators.
+
+## Installation
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+      <Tab value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://tsxforge.vercel.app/registry/breadcrumb.json
+        ```
+      </Tab>
+      <Tab value="npm">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/breadcrumb.json
+        ```
+      </Tab>
+      <Tab value="yarn">
+        ```bash
+        npx shadcn@latest add https://tsxforge.vercel.app/registry/breadcrumb.json
+        ```
+      </Tab>
+      <Tab value="bun">
+        ```bash
+        bunx shadcn@latest add https://tsxforge.vercel.app/registry/breadcrumb.json
+        ```
+      </Tab>
+    </Tabs>
+  </Tab>
+  <Tab value="Manual">
+    <Steps>
+      <Step>
+        Install the following dependencies:
+        ```bash
+        npm install radix-ui @hugeicons/react @hugeicons/core-free-icons @tanstack/react-router
+        ```
+      </Step>
+      <Step>
+        Copy the component code to `src/components/tsxforge/breadcrumb.tsx`
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Why TsxForge Breadcrumb?
+
+The primary advantage is **conciseness**. The TsxForge Breadcrumb automatically wraps its children in logic that inserts separators and manages active/inactive states based on position.
+
+### Comparison
+
+**Standard Shadcn UI (Verbose):**
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+**TsxForge (Declarative):**
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbLink to="/">Home</BreadcrumbLink>
+  <BreadcrumbLink to="/components">Components</BreadcrumbLink>
+  <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+</Breadcrumb>
+```
+
+## Usage
+
+Basic navigation with automatic separators and typography adjustments for the current page.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose">
+      <BreadcrumbBasicDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import { Breadcrumb, BreadcrumbLink, BreadcrumbPage } from "@/components/tsxforge/breadcrumb"
+
+export default function Example() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbLink to="/">Home</BreadcrumbLink>
+      <BreadcrumbLink to="/components">Components</BreadcrumbLink>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </Breadcrumb>
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Collapsed Items (Ellipsis)
+
+Use `BreadcrumbEllipsis` to represent collapsed levels of hierarchy.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose">
+      <BreadcrumbEllipsisDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+<Breadcrumb>
+  <BreadcrumbLink to="/">Home</BreadcrumbLink>
+  <BreadcrumbEllipsis />
+  <BreadcrumbLink to="/sustainability">Sustainability</BreadcrumbLink>
+  <BreadcrumbPage>Details</BreadcrumbPage>
+</Breadcrumb>
+```
+  </Tab>
+</Tabs>
