@@ -4,6 +4,7 @@ description: Enhanced Image component with lazy loading, error handling, and acc
 ---
 
 import Image from "@/components/tsxforge/image";
+import { ImageBlurDemo, ImageErrorDemo, ImagePlaceholderDemo } from "@/components/tsxforge/image-demo";
 
 # Image
 
@@ -55,7 +56,7 @@ The `Image` component is built on top of `react-lazy-load-image-component`. It p
 
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
-    <div className="not-prose p-4 border rounded-2xl w-full max-w-sm">
+    <div className="not-prose p-4 w-full max-w-sm">
       <Image
         src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop"
         alt="Red Nike Shoe"
@@ -75,6 +76,105 @@ export default function Example() {
       alt="Red Nike Shoe"
       className="rounded-xl overflow-hidden shadow-lg"
       showBlurEffect={true}
+    />
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Blur Effect
+
+The `showBlurEffect` prop enables a smooth blur-up transition as the image loads. This is useful for providing immediate visual feedback especially on slower connections.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-2 w-full overflow-hidden">
+      <ImageBlurDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import { useState } from 'react'
+import { Image, Button } from "@/components/tsxforge"
+
+export default function BlurExample() {
+  const [key, setKey] = useState(0)
+
+  return (
+    <div className="flex flex-col gap-4">
+      <Image
+        key={key}
+        src={`https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop&t=${key}`}
+        alt="Red Nike Shoe"
+        showBlurEffect={true}
+        className="rounded-xl overflow-hidden shadow-lg"
+      />
+      <Button onClick={() => setKey(k => k + 1)}>
+        Re-trigger Blur
+      </Button>
+    </div>
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Error Handling
+
+Gracefully handle broken image links by providing a `fallbackSrc`. The component automatically switches to this source if the primary `src` fails to load.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-2 w-full overflow-hidden">
+      <ImageErrorDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import { Image } from "@/components/tsxforge/image"
+
+export default function ErrorExample() {
+  return (
+    <Image
+      src="https://broken-link.com/image.jpg"
+      fallbackSrc="/image-break.png"
+      alt="Broken Image Example"
+      className="rounded-xl shadow-lg"
+    />
+  )
+}
+```
+  </Tab>
+</Tabs>
+
+## Custom Placeholder
+
+You can provide a `placeholder` component to show while the image is loading. This is ideal for skeletons or custom loading animations.
+
+<Tabs items={['Preview', 'Code']}>
+  <Tab value="Preview">
+    <div className="not-prose p-2 w-full overflow-hidden">
+      <ImagePlaceholderDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+import { Image } from "@/components/tsxforge/image"
+import { RefreshIcon } from '@hugeicons/core-free-icons'
+
+export default function PlaceholderExample() {
+  return (
+    <Image
+      src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop"
+      alt="Custom Placeholder"
+      placeholder={
+        <div className="flex flex-col items-center justify-center gap-2 animate-pulse text-muted-foreground">
+          <RefreshIcon className="w-8 h-8 animate-spin" />
+          <span>Loading...</span>
+        </div>
+      }
+      className="rounded-xl shadow-lg"
     />
   )
 }
