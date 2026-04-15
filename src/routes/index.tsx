@@ -388,10 +388,9 @@ function Home() {
                         <span>
                           <span className="text-[#8B5CF6]">import</span> &#123;{" "}
                           <span className="text-emerald-400">Pagination</span>,{" "}
-                          <span className="text-emerald-400">Card</span> &#125;{" "}
                           <span className="text-[#8B5CF6]">from</span>{" "}
                           <span className="text-amber-200">
-                            "@tsxforge/core"
+                            "@tsxforge/pagination"
                           </span>
                           ;
                         </span>
