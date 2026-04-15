@@ -142,7 +142,7 @@ function Home() {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0, transition: { delay: 1 } },
                   }}
-                  className="flex flex-wrap gap-4 pt-4"
+                  className="flex gap-4 pt-4"
                 >
                   <ButtonLink
                     to="/docs/$"
